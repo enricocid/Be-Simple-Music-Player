@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="artists">Artisti</string>
+    <string name="artist_info">%1d Album, %2d Canzoni</string>
+    <string name="folder_info">%1d Canzoni</string>
+    <string name="shuffle_am">Mescola tutte le canzoni</string>
+    <string name="shuffle_sa">Mescola l\'abum selezionato</string>
+    <string name="folders">Cartelle</string>
+    <string name="equalizer">Equalizzatore</string>
+    <string name="equalizer_bb">Potenziamento bassi</string>
+    <string name="perm_rationale">Be Simple deve poter accedere ai tuoi file per eseguire la musica.</string>
+    <string name="error_no_browser">Nessun web browser trovato.</string>
+    <string name="error_bad_id">Magari esegui una canzone.</string>
+    <string name="error_no_music">Nessuna canzone trovata :(</string>
+    <string name="error_not_ready">Non è stato possibile caricare la libreria musicale! :( Ciò è probabilmente dovuto alla scheda SD che qualche volta viene smontata, forzando il MediaStore Android a ricostruire il suo database. Riprova più tardi :)</string>
+    <string name="error_media_buttons">Qualcosa è andato storto! :( Per favore riavvia la riproduzione dall\'app</string>
+    <string name="error_eq">Ooops, qualcosa è andato storto!</string>
+    <string name="on_close_activity">Vuoi interrompere la riproduzione?</string>
+    <string name="repeat_enabled">Ripeti 1x on.</string>
+    <string name="repeat_loop_enabled">Ripeti ∞ on.</string>
+    <string name="repeat_disabled">Ripeti ∞ off.</string>
+    <string name="settings">Opzioni</string>
+    <string name="open_git_pref_title">Pagina GitHub</string>
+    <string name="open_git_pref_summary">Apri la pagina del progetto per maggiori info :)</string>
+    <string name="found_songs_pref_title">Canzoni trovate: %1d</string>
+    <string name="theme_pref_title">Tema</string>
+    <string name="theme_pref_light_title">Chiaro</string>
+    <string name="theme_pref_dark_title">Scuro</string>
+    <string name="theme_pref_auto_title">Automatico</string>
+    <string name="song_visual_pref_title">Visualizzazione canzoni</string>
+    <string name="song_visual_pref_tl_title">Titolo</string>
+    <string name="song_visual_pref_fn_title">Nome del file</string>
+    <string name="eq_pref_note_summary">Nota: verrà preferito l\'equalizzatore di sistema a meno che tu non lo disabiliti dalle impostazioni di sistema. :)</string>
+    <string name="sorting_pref">Ordine</string>
+    <string name="sorting_pref_default">Predefinito</string>
+    <string name="sorting_pref_track">Per n° traccia ↓</string>
+    <string name="sorting_pref_track_inv">Per n° traccia ↑</string>
+    <string name="focus_pref_title">Focus audio</string>
+    <string name="focus_pref_summary_on">Disabilita gestione focus audio</string>
+    <string name="focus_pref_summary_off">Abilita gestione focus audio</string>
+    <string name="headset_pref_title">Inserimento cuffie</string>
+    <string name="headset_pref_summary_on">Disabilita gestione inserimento cuffie</string>
+    <string name="headset_pref_summary_off">Abilita gestione inserimento cuffie</string>
+</resources>

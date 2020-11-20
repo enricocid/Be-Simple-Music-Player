@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2019 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:summary="@string/open_git_pref_summary"
+        app:icon="@drawable/ic_code"
+        app:key="@string/open_git_pref"
+        app:title="@string/open_git_pref_title" />
+
+    <ListPreference
+        android:defaultValue="@string/theme_pref_light"
+        app:dialogTitle="@string/theme_pref_title"
+        app:entries="@array/themeListArray"
+        app:entryValues="@array/themeEntryArray"
+        app:key="@string/theme_pref"
+        app:title="@string/theme_pref_title"
+        app:useSimpleSummaryProvider="true" />
+
+    <Preference
+        android:enabled="false"
+        app:icon="@drawable/ic_database"
+        app:key="@string/found_songs_pref" />
+
+    <Preference
+        android:enabled="false"
+        android:summary="@string/eq_pref_note_summary"
+        app:title="@string/equalizer" />
+
+    <SwitchPreferenceCompat
+        android:summaryOff="@string/focus_pref_summary_off"
+        app:defaultValue="true"
+        app:key="@string/focus_pref"
+        app:summaryOn="@string/focus_pref_summary_on"
+        app:title="@string/focus_pref_title" />
+
+    <SwitchPreferenceCompat
+        android:summaryOff="@string/headset_pref_summary_off"
+        app:defaultValue="true"
+        app:key="@string/headset_pref"
+        app:summaryOn="@string/headset_pref_summary_on"
+        app:title="@string/headset_pref_title" />
+
+    <ListPreference
+        android:defaultValue="0"
+        app:dialogTitle="@string/song_visual_pref_title"
+        app:entries="@array/songVisualizationArray"
+        app:entryValues="@array/songVisualizationEntryArray"
+        app:key="@string/song_visual_pref"
+        app:title="@string/song_visual_pref_title"
+        app:useSimpleSummaryProvider="true" />
+</androidx.preference.PreferenceScreen>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="artists">Sanatçılar</string>
+    <string name="artist_info">%1d Albüm, %2d Şarkı</string>
+    <string name="folder_info">%1d Şarkı</string>
+    <string name="shuffle_am">Tüm şarkıları karışık çal</string>
+    <string name="shuffle_sa">Seçilen albümü karışık çal</string>
+    <string name="folders">Klasörler</string>
+    <string name="perm_rationale">Be Simple\'nun müzik çalmak için dosyalarınıza erişmesi gerekiyor.</string>
+    <string name="error_no_browser">Web tarayıcısı bulunamadı.</string>
+    <string name="error_bad_id">Önce bir şarkı çal.</string>
+    <string name="error_no_music">Müzik bulunamadı :(</string>
+    <string name="error_media_buttons">Bir şeyler yanlış gitti! :( Lütfen uygulamadan oynatmayı yeniden başlatın.</string>
+    <string name="on_close_activity">Oynatmayı durdurmak ister misin?</string>
+    <string name="settings">Ayarlar</string>
+    <string name="open_git_pref_title">GitHub Sayfası</string>
+    <string name="open_git_pref_summary">Daha fazla bilgi için projenin internet sayfasını açın :)</string>
+    <string name="found_songs_pref_title">Bulunan şarkılar: %1d</string>
+    <string name="theme_pref_title">Tema</string>
+    <string name="theme_pref_light_title">Açık</string>
+    <string name="theme_pref_dark_title">Koyu</string>
+    <string name="theme_pref_auto_title">Otomatik</string>
+    <string name="sorting_pref_default">Varsayılan</string>
+    <string name="focus_pref_title">Ses odaklama</string>
+    <string name="focus_pref_summary_on">Ses odaklama yönetimini kapatın</string>
+    <string name="focus_pref_summary_off">Ses odaklama yönetimini açın</string>
+    <string name="headset_pref_title">Kulaklık girişi</string>
+    <string name="headset_pref_summary_on">Kulaklık girişi yönetimini kapatın</string>
+    <string name="headset_pref_summary_off">Kulaklık girişi yönetimini açın</string>
+    <string name="repeat_loop_enabled">∞ tekrar açık.</string>
+    <string name="repeat_enabled">Tek tekrar açık.</string>
+    <string name="repeat_disabled">∞ tekrar kapalı.</string>
+    <string name="sorting_pref">Sıralama</string>
+    <string name="sorting_pref_track">Şarkı numarasına göre ↓</string>
+    <string name="sorting_pref_track_inv">Şarkı numarasına göre ↑</string>
+    <string name="error_not_ready">Müzik kütüphanesi yüklenemedi! :( Bu SD kartın bağlantısının kesilmesinden ve Android\'in MediaStore veri tabanı kayıtlarını yeniden oluşturmaya zorlamasından kaynaklanabilir. Daha sonra tekrar deneyin.</string>
+    <string name="eq_pref_note_summary">Not: Sistem ayarlarından \"sistem dengeleyicisi\" özelliğini kapatmadığınız sürece sistem dengeleyicisi tercih edilecektir. :)</string>
+    <string name="error_eq">Tüh, bir hata oluştu!</string>
+    <string name="song_visual_pref_fn_title">Dosya adı</string>
+    <string name="song_visual_pref_tl_title">Başlık</string>
+    <string name="song_visual_pref_title">Şarkı görselleştirme</string>
+    <string name="equalizer_bb">Bas güçlendirme</string>
+    <string name="equalizer">Dengeleyici</string>
+</resources>

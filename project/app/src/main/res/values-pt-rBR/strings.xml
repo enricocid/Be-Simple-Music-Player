@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="artists">Artistas</string>
+    <string name="artist_info">%1d Álbuns, %2d Músicas</string>
+    <string name="folder_info">%1d Músicas</string>
+    <string name="shuffle_am">Reproduzir todas as músicas aleatoriamente</string>
+    <string name="shuffle_sa">Reproduzir aleatoriamente o álbum selecionado</string>
+    <string name="folders">Pastas</string>
+    <string name="perm_rationale">Be Simple precisa acessar seus arquivos para reproduzir música.</string>
+    <string name="error_no_browser">Nenhum navegador encontrado.</string>
+    <string name="error_bad_id">Toque uma música primeiro.</string>
+    <string name="error_no_music">Nenhuma música encontrada :(</string>
+    <string name="error_media_buttons">Algo deu errado! :( Por favor, reinicie a reprodução do aplicativo.</string>
+    <string name="on_close_activity">Deseja parar a reprodução\?</string>
+    <string name="repeat_enabled">Repetição única ligada.</string>
+    <string name="repeat_loop_enabled">Repetir ∞ ligado.</string>
+    <string name="repeat_disabled">Repetir ∞ desligado.</string>
+    <string name="settings">Configurações</string>
+    <string name="open_git_pref_title">Página no GitHub</string>
+    <string name="open_git_pref_summary">Abra a página do projeto para mais informações :)</string>
+    <string name="theme_pref_title">Tema</string>
+    <string name="theme_pref_light_title">Claro</string>
+    <string name="theme_pref_dark_title">Escuro</string>
+    <string name="theme_pref_auto_title">Automático</string>
+    <string name="sorting_pref_default">Padrão</string>
+    <string name="focus_pref_title">Foco do áudio</string>
+    <string name="focus_pref_summary_on">Desligar gerenciamento de foco do áudio</string>
+    <string name="focus_pref_summary_off">Ligar gerenciamento de foco do áudio</string>
+    <string name="headset_pref_title">Entrada do fone de ouvido</string>
+    <string name="headset_pref_summary_on">Desligar gerenciamento de entrada do fone de ouvido</string>
+    <string name="headset_pref_summary_off">Ligar gerenciamento de entrada do fone de ouvido</string>
+    <string name="found_songs_pref_title">Músicas encontradas: %1d</string>
+    <string name="sorting_pref">Classificação</string>
+    <string name="sorting_pref_track">Pelo número da faixa ↓</string>
+    <string name="sorting_pref_track_inv">Pelo número da faixa ↑</string>
+    <string name="error_not_ready">Não foi possível carregar sua biblioteca de músicas! :( Isso pode ter ocorrido devido à remoção do cartão SD, forçando o MediaStore do Android a reconstruir seus registros de banco de dados. Tente novamente mais tarde.</string>
+    <string name="eq_pref_note_summary">Obs: O equalizador do sistema será preferido, a menos que você desative o aplicativo \"equalizador do sistema\" nas configurações de sistema. :)</string>
+    <string name="error_eq">Ooops, um erro ocorreu!</string>
+    <string name="equalizer_bb">Aumento dos graves</string>
+    <string name="equalizer">Equalizador</string>
+    <string name="song_visual_pref_fn_title">Nome do arquivo</string>
+    <string name="song_visual_pref_tl_title">Título</string>
+    <string name="song_visual_pref_title">Visualização de música</string>
+</resources>

@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- Dialogs / Buttons -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="on_close_activity">Do you want to stop playback?</string>
+
+    <!-- Main - Fragments titles -->
+    <string name="artists">Artists</string>
+    <string name="folders">Folders</string>
+
+    <!-- Equalizer -->
+    <string name="equalizer">Equalizer</string>
+    <string name="equalizer_bb">Bass boost</string>
+
+    <!-- Main - Artists/Folder RecyclerViews items  -->
+    <string name="artist_info">%1d&#160;Albums,&#160;%2d&#160;Songs</string>
+    <string name="folder_info">%1d&#160;Songs</string>
+
+    <!-- Popup/Menu titles -->
+    <string name="sorting_pref">Sorting</string>
+    <string name="sorting_pref_default">Default</string>
+    <string name="sorting_pref_track">By track no. &#8595;</string>
+    <string name="sorting_pref_track_inv">By track no. &#8593;</string>
+    <string name="shuffle_am">Shuffle all songs</string>
+    <string name="shuffle_sa">Shuffle selected album</string>
+
+    <!-- Messages - Errors -->
+    <string name="error_no_music">No music found :(</string>
+    <string name="error_not_ready">Could not load the music library! :( This could be due to the SD card getting unmounted, forcing the Android\'s MediaStore to rebuild its database records. Try again later.</string>
+    <string name="error_media_buttons">Something went wrong! :( Please restart playback from the app.</string>
+    <string name="error_no_browser">No web browser found.</string>
+    <string name="error_bad_id">Play a song first.</string>
+    <string name="error_eq">Ooops, an error occurred!</string>
+
+    <!-- Messages - Permission rationale -->
+    <string name="perm_rationale">Be Simple needs access to your files to play music.</string>
+
+    <!-- Messages - Repeat -->
+    <string name="repeat_enabled">Single repetition on.</string>
+    <string name="repeat_loop_enabled">Repeat &#8734; on.</string>
+    <string name="repeat_disabled">Repeat &#8734; off.</string>
+
+    <!-- Preferences - Categories -->
+    <string name="settings">Settings</string>
+
+    <!-- Preferences - Git page -->
+    <string name="open_git_pref_title">GitHub page</string>
+    <string name="open_git_pref_summary">Open the project\'s webpage for more info :)</string>
+
+    <!-- Preferences - Found songs -->
+    <string name="found_songs_pref_title">Songs found: %1d</string>
+
+    <!-- Preferences - Themes -->
+    <string name="theme_pref_title">Theme</string>
+    <string name="theme_pref_light_title">Light</string>
+    <string name="theme_pref_dark_title">Dark</string>
+    <string name="theme_pref_auto_title">Automatic</string>
+
+    <!-- Preferences - Song visualization options (tl = title, fn = full name) -->
+    <string name="song_visual_pref_title">Song visualization</string>
+    <string name="song_visual_pref_tl_title">Title</string>
+    <string name="song_visual_pref_fn_title">Filename</string>
+
+    <!-- Preferences - Custom Equalizer note -->
+    <string name="eq_pref_note_summary">Note: The system equalizer will be preferred unless you turn off the app \"system equalizer\" from the system settings. :)</string>
+
+    <!-- Preferences - Focus -->
+    <string name="focus_pref_title">Audio focus</string>
+    <string name="focus_pref_summary_on">Turn off audio focus management</string>
+    <string name="focus_pref_summary_off">Turn on audio focus management</string>
+
+    <!-- Preferences - Headsets -->
+    <string name="headset_pref_title">Headset plug</string>
+    <string name="headset_pref_summary_on">Turn off headset plug management</string>
+    <string name="headset_pref_summary_off">Turn on headset plug management</string>
+</resources>

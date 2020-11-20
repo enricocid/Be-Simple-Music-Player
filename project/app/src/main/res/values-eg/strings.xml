@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="on_close_activity">هل تريد ايقاف التشغيل؟</string>
+    <string name="artists">فنانين</string>
+    <string name="folders">المجلدات</string>
+    <string name="artist_info">%1d ألبومات,I %2d  الأغاني</string>
+    <string name="folder_info">%1d الأغاني</string>
+    <string name="sorting_pref">فرز</string>
+    <string name="sorting_pref_default">إفتراضي</string>
+    <string name="sorting_pref_track">بواسطة رقم المسار. ↓</string>
+    <string name="sorting_pref_track_inv">بواسطة رقم المسار. ↑</string>
+    <string name="shuffle_am">خلط جميع الأغاني</string>
+    <string name="shuffle_sa">تبديل الألبوم المحدد عشوائيًا</string>
+    <string name="error_no_music">لم يتم العثور على موسيقى :(</string>
+    <string name="error_not_ready">حدثت مشكلة أثناء تحميل مكتبة الموسيقى! :( قد يكون هذا بسبب عدم تحميل بطاقة SD ، مما اضطر MediaStore في Android إلى إعادة بناء سجلات قاعدة البيانات الخاصة به. الحل: حاول مرة أخرى لاحقًا.</string>
+    <string name="error_media_buttons">هناك خطأ ما! :( يرجى إعادة التشغيل من التطبيق.</string>
+    <string name="error_no_browser">لم يتم العثور على متصفح!</string>
+    <string name="error_bad_id">قم بتشغيل أغنية أولاً!</string>
+    <string name="perm_rationale">يحتاج Be Simple إلى الوصول إلى ملفاتك لتشغيل الموسيقى!</string>
+    <string name="repeat_enabled">تمكين تكرار 1x!</string>
+    <string name="repeat_loop_enabled">كرر ∞ ممكن!</string>
+    <string name="repeat_disabled">كرر ∞ ممكن!</string>
+    <string name="settings">الإعدادات</string>
+    <string name="open_git_pref_title">الصفحةGitHub</string>
+    <string name="open_git_pref_summary">افتح صفحة المشروع لمزيد من المعلومات :)</string>
+    <string name="found_songs_pref_title">%1d: الأغاني الموجودة</string>
+    <string name="theme_pref_title">موضوع</string>
+    <string name="theme_pref_light_title">ضوء</string>
+    <string name="theme_pref_dark_title">داكن</string>
+    <string name="theme_pref_auto_title">تلقائي</string>
+    <string name="focus_pref_title">التركيز الصوتي</string>
+    <string name="focus_pref_summary_on">تعطيل إدارة التركيز الصوتي</string>
+    <string name="focus_pref_summary_off">تمكين إدارة التركيز الصوتي</string>
+    <string name="headset_pref_title">قابس سماعة الرأس</string>
+    <string name="headset_pref_summary_on">إيقاف إدارة قابس سماعة الرأس</string>
+    <string name="headset_pref_summary_off">تفعيل إدارة قابس سماعة الرأس</string>
+</resources>

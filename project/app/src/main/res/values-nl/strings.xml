@@ -1,0 +1,37 @@
+<resources>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
+    <string name="artists">Artiesten</string>
+    <string name="artist_info">%1d&#160;Albums,&#160;%2d&#160;Nummers</string>
+    <string name="folder_info">%1d&#160;Nummers</string>
+    <string name="sorting_pref">Sorteren</string>
+    <string name="sorting_pref_track">Op liednummer &#8595;</string>
+    <string name="sorting_pref_track_inv">Op liednummer &#8593;</string>
+    <string name="shuffle_am">Alle nummers willekeurig afspelen</string>
+    <string name="shuffle_sa">Geselecteerd album willekeurig afspelen</string>
+    <string name="folders">Mappen</string>
+    <string name="perm_rationale">Be Simple heeft toegang nodig tot je bestanden om muziek af te spelen!</string>
+    <string name="error_no_browser">Geen browser aangetroffen!</string>
+    <string name="error_bad_id">Start eerst een nummer!</string>
+    <string name="error_no_music">Geen muziek aangetroffen :(</string>
+    <string name="error_media_buttons">Er is iets misgegaan! :( Start de muziek opnieuw in de app</string>
+    <string name="on_close_activity">Wil je het afspelen stoppen?</string>
+    <string name="repeat_enabled">1x herhalen ingeschakeld!</string>
+    <string name="repeat_loop_enabled">&#8734; herhalen ingeschakeld!</string>
+    <string name="repeat_disabled">&#8734; herhalen uitgeschakeld!</string>
+    <string name="settings">Instellingen</string>
+    <string name="open_git_pref_title">GitHub-pagina</string>
+    <string name="open_git_pref_summary">Bekijk de projectpagina voor meer informatie :)</string>
+    <string name="found_songs_pref_title">Aangetroffen nummers: %1d</string>
+    <string name="theme_pref_title">Thema</string>
+    <string name="theme_pref_light_title">Licht</string>
+    <string name="theme_pref_dark_title">Donker</string>
+    <string name="theme_pref_auto_title">Automatisch</string>
+    <string name="sorting_pref_default">Standaard</string>
+    <string name="focus_pref_title">Audiofocus</string>
+    <string name="focus_pref_summary_on">Audiofocusbeheer uitschakelen</string>
+    <string name="focus_pref_summary_off">Audiofocusbeheer inschakelen</string>
+    <string name="headset_pref_title">Headset-pluggen</string>
+    <string name="headset_pref_summary_on">Headset-plugbeheer uitschakelen</string>
+    <string name="headset_pref_summary_off">Headset-plugbeheer inschakelen</string>
+</resources>

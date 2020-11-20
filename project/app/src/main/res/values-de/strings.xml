@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_bad_id">Spiel zuerst ein Lied.</string>
+    <string name="error_no_browser">Kein Webbrowser gefunden.</string>
+    <string name="perm_rationale">Be Simple benötigt Zugriff auf deine Dateien, um Musik abspielen zu können.</string>
+    <string name="artist_info">%1d Alben, %2d Lieder</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="headset_pref_summary_off">Management des Kopfhöreranschlusses einschalten</string>
+    <string name="headset_pref_summary_on">Management des Kopfhöreranschlusses ausschalten</string>
+    <string name="headset_pref_title">Kopfhöreranschluss</string>
+    <string name="focus_pref_summary_off">Audiofokusmanagement einschalten</string>
+    <string name="focus_pref_summary_on">Audiofokusmanagement ausschalten</string>
+    <string name="focus_pref_title">Audiofokus</string>
+    <string name="song_visual_pref_fn_title">Dateiname</string>
+    <string name="song_visual_pref_tl_title">Titel</string>
+    <string name="song_visual_pref_title">Audiovisualisierung</string>
+    <string name="theme_pref_auto_title">Automatisch</string>
+    <string name="theme_pref_dark_title">Dunkel</string>
+    <string name="theme_pref_light_title">Hell</string>
+    <string name="theme_pref_title">Thema</string>
+    <string name="found_songs_pref_title">Gefundene Lieder: %1d</string>
+    <string name="open_git_pref_summary">Projektseite für mehr Infos öffnen :)</string>
+    <string name="open_git_pref_title">GitHub-Seite</string>
+    <string name="settings">Einstellungen</string>
+    <string name="repeat_disabled">Unendliche ∞ Wiederholung aus.</string>
+    <string name="repeat_loop_enabled">Unendliche ∞ Wiederholung an.</string>
+    <string name="repeat_enabled">Einmalige Wiederholung an.</string>
+    <string name="error_media_buttons">Etwas ist schief gelaufen :( Bitte starten Sie die Wiedergabe neu.</string>
+    <string name="error_not_ready">Es gab ein Problem beim Laden der Musikbibliothek. Dies kann daran liegen, dass die SD-Karte ausgeworfen wurde, was dazu führt, dass die Datenbank des MediaStores von Android neu aufgebaut werden muss. Lösung: Versuchen Sie es später erneut.</string>
+    <string name="error_no_music">Keine Musik gefunden :(</string>
+    <string name="shuffle_sa">Gewähltes Album zufällig wiedergeben</string>
+    <string name="shuffle_am">Alle Lieder zufällig wiedergeben</string>
+    <string name="sorting_pref_track_inv">Nach Titelnummer ↑</string>
+    <string name="sorting_pref_track">Nach Titelnummer ↓</string>
+    <string name="sorting_pref_default">Standard</string>
+    <string name="sorting_pref">Sortierung</string>
+    <string name="folder_info">%1d Lieder</string>
+    <string name="equalizer_bb">Bassanhebung</string>
+    <string name="equalizer">Equalizer</string>
+    <string name="folders">Ordner</string>
+    <string name="artists">Künstler</string>
+    <string name="on_close_activity">Wollen Sie die Wiedergabe stoppen\?</string>
+    <string name="eq_pref_note_summary">Hinweis: Der systemweite Equalizer wird bevorzugt verwendet, es sei denn du deaktivierst die App \"System Equalizer\" in den Systemeinstellungen. :)</string>
+    <string name="error_eq">Ups, ein Fehler ist aufgetreten!</string>
+</resources>

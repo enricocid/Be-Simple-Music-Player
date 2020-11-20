@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+    <string name="on_close_activity">Czy chcesz zatrzymać odtwarzanie muzyki?</string>
+    <string name="artists">Artyści</string>
+    <string name="folders">Foldery</string>
+    <string name="artist_info">%1d Albumy, %2d Utwory</string>
+    <string name="folder_info">%1d Utwory</string>
+    <string name="sorting_pref">Sortowanie</string>
+    <string name="sorting_pref_default">Domyślne</string>
+    <string name="sorting_pref_track">Według nr scieżki ↓</string>
+    <string name="sorting_pref_track_inv">Według nr ścieżki ↑</string>
+    <string name="shuffle_am">Odtwarzaj losowo</string>
+    <string name="shuffle_sa">Odtwarzaj losowo album</string>
+    <string name="error_no_music">Nie znaleziono muzyki :(</string>
+    <string name="error_not_ready">Wystąpił błąd dotyczący biblioteki muzyki! :( Być może problem dotyczy karty SD, która czasami zostaje odłączona wymuszając na programie Android MediaStore przebudowanie swoich rekordów w bazie danych. Rozwiązanie: spróbuj ponownie później ;)</string>
+    <string name="error_media_buttons">Coś poszło nie tak! :( Proszę uruchomić ponownie odtwarzanie w aplikacji</string>
+    <string name="error_no_browser">Nie znaleziono przeglądarki!</string>
+    <string name="error_bad_id">Najpierw coś odtwórz!</string>
+    <string name="perm_rationale">Be Simple wymaga dostępu do plików, aby odtwarzać muzykę!</string>
+    <string name="repeat_enabled">Powtarzanie 1x włączone!</string>
+    <string name="repeat_loop_enabled">Powtarzanie ∞ włączone!</string>
+    <string name="repeat_disabled">Powtarzanie ∞ wyłączone!</string>
+    <string name="settings">Ustawienia</string>
+    <string name="open_git_pref_title">Strona na GitHub</string>
+    <string name="open_git_pref_summary">Odtwórz stronę projektu, aby uzyskać więcej informacji :)</string>
+    <string name="found_songs_pref_title">Znaleziono utwory: %1d</string>
+    <string name="theme_pref_title">Motyw</string>
+    <string name="theme_pref_light_title">Jasny</string>
+    <string name="theme_pref_dark_title">Ciemny</string>
+    <string name="theme_pref_auto_title">Automatyczny</string>
+    <string name="focus_pref_title">Wyciszanie otoczenia</string>
+    <string name="focus_pref_summary_on">Wyłącz opcję wyciszenia</string>
+    <string name="focus_pref_summary_off">Wyciszaj inne źródła dźwięku</string>
+    <string name="headset_pref_title">Podłączanie słuchawek</string>
+    <string name="headset_pref_summary_on">Wyłącz zarządzanie podłączeniem słuchawek</string>
+    <string name="headset_pref_summary_off">Zarządzaj zachowaniem przy podłączeniu słuchawek</string>
+    <string name="song_visual_pref_fn_title">Nazwa pliku</string>
+    <string name="song_visual_pref_tl_title">Tytuł</string>
+    <string name="song_visual_pref_title">Wirtualizacja muzyki</string>
+    <string name="equalizer_bb">Wzmocnienie basów</string>
+    <string name="equalizer">Korektor</string>
+</resources>

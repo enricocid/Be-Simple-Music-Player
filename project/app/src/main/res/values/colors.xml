@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue">#448aff</color>
+    <color name="red">#b71c1c</color>
+    <color name="windowBackground">#fafafa</color>
+    <color name="dialogsBackground">@color/windowBackground</color>
+    <color name="widgetsColor">#212121</color>
+    <color name="navBarColor">@android:color/darker_gray</color>
+</resources>

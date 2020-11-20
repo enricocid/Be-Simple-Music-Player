@@ -1,0 +1,19 @@
+# Caratteristiche
+
+- Interfaccia minimalista
+- Equalizzatore
+- Temi chiaro, scuro, automatico
+- Semplice gestione del focus audio e delle cuffie
+- Ricerca, ordinamento, shuffle ...
+- Code base moderna e ... Kotlin!
+
+
+# Vuoi di più?
+Dai una occhiata a Music Player GO:
+https://f-droid.org/packages/com.iven.musicplayergo/
+
+
+# Vuoi contribuire alle traduzioni?
+
+Unisciti a noi su Weblate:
+https://hosted.weblate.org/engage/music-player-go/

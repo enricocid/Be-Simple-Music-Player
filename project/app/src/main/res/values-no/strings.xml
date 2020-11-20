@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Ja</string>
+    <string name="no">Nei</string>
+    <string name="on_close_activity">Vil du stoppe avspillingen?</string>
+    <string name="artists">Artister</string>
+    <string name="folders">mapper</string>
+    <string name="artist_info">%1d  album, %2d Songs</string>
+    <string name="folder_info">%1d  Sanger</string>
+    <string name="sorting_pref">Sortering</string>
+    <string name="sorting_pref_default">Misligholde</string>
+    <string name="sorting_pref_track">Ved spor nr. ↓</string>
+    <string name="sorting_pref_track_inv">Ved spor nr. ↓</string>
+    <string name="shuffle_am">Bland alle sangene</string>
+    <string name="shuffle_sa">Bland det valgte albumet</string>
+    <string name="error_no_music">Ingen musikk funnet :(</string>
+    <string name="error_not_ready">Det oppsto et problem under lasting av musikkbiblioteket! :( Dette kan skyldes at SD-kortet blir montert, og tvinger Android\'s MediaStore til å gjenopprette databasepostene. Løsning: prøv igjen senere.</string>
+    <string name="error_media_buttons">Noe gikk galt! :( Vennligst start avspillingen på nytt fra appen.</string>
+    <string name="error_no_browser">Ingen nettlesere funnet!</string>
+    <string name="error_bad_id">Spill en sang først!</string>
+    <string name="perm_rationale">Be Simple trenger tilgang til filene dine for å spille musikk!</string>
+    <string name="repeat_enabled">Gjenta 1x aktivert!</string>
+    <string name="repeat_loop_enabled">Gjenta ∞ aktivert!</string>
+    <string name="repeat_disabled">Gjenta ∞ deaktivert!</string>
+    <string name="settings">innstillinger</string>
+    <string name="open_git_pref_title">GitHub-side</string>
+    <string name="open_git_pref_summary">Åpne prosjektets side for mer info :)</string>
+    <string name="found_songs_pref_title">Fant sanger: %1d</string>
+    <string name="theme_pref_title">Tema</string>
+    <string name="theme_pref_light_title">Lys</string>
+    <string name="theme_pref_dark_title">Mørk</string>
+    <string name="theme_pref_auto_title">Automatisk</string>
+    <string name="focus_pref_title">Lydfokus</string>
+    <string name="focus_pref_summary_on">Deaktiver styring av lydfokus</string>
+    <string name="focus_pref_summary_off">Aktiver styring av lydfokus</string>
+    <string name="headset_pref_title">Hodetelefonkontakt</string>
+    <string name="headset_pref_summary_on">Deaktiver styring av headsetteplugger</string>
+    <string name="headset_pref_summary_off">Aktiver styring av headsetplugger</string>
+    <string name="song_visual_pref_title">Sporvirtualisering</string>
+    <string name="eq_pref_note_summary">Merk: Systemtonekontroll foretrekkes. Hvis du ønsker å bruke den innebygde, skru av programmet system equalizer fra innstillingene. :)</string>
+    <string name="song_visual_pref_fn_title">Filnavn</string>
+    <string name="song_visual_pref_tl_title">Tittel</string>
+    <string name="error_eq">Oida, en feil inntraff.</string>
+    <string name="equalizer_bb">Bassforsterking</string>
+    <string name="equalizer">Tonekontroll</string>
+</resources>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="artists">Művészek</string>
+    <string name="artist_info">%1d&#160;Albumok,&#160;%2d&#160;Dalok</string>
+    <string name="folder_info">%1d&#160;Dalok</string>
+    <string name="shuffle_am">Összes dal keverése</string>
+    <string name="shuffle_sa">Kiválasztott albumok keverése</string>
+    <string name="folders">Mappa</string>
+    <string name="perm_rationale">Be Simple hozzáférést igényel a fáljaidhoz hogy zenét tudjon játszani!</string>
+    <string name="error_no_browser">Böngésző nem található!</string>
+    <string name="error_bad_id">Először játsz egy dalt!</string>
+    <string name="error_no_music">Zene nem található! :(</string>
+    <string name="error_media_buttons">Valami elromlott! :( Kérlek indításad újra a visszajátszást</string>
+    <string name="on_close_activity">Meg szeretnéd állítani a visszajátszást?</string>
+    <string name="repeat_enabled">Ismétlés 1x aktiválva!</string>
+    <string name="repeat_loop_enabled">Ismétlés &#8734; aktiválva !</string>
+    <string name="repeat_disabled">Ismétlés &#8734; deaktiválva !</string>
+    <string name="settings">Beállítások</string>
+    <string name="open_git_pref_title">GitHub oldal</string>
+    <string name="open_git_pref_summary">Nyisd meg a Projektek oldalt több információért :)</string>
+    <string name="theme_pref_title">Színséma</string>
+    <string name="theme_pref_light_title">Világos</string>
+    <string name="theme_pref_dark_title">Sötét</string>
+    <string name="theme_pref_auto_title">Autómatikus</string>
+    <string name="sorting_pref_default">Alapértelmezett</string>
+    <string name="focus_pref_title">Audió fókusz</string>
+    <string name="focus_pref_summary_on">Audió fókusz menedzsment tiltás</string>
+    <string name="focus_pref_summary_off">Audió fókusz menedzsment engedélyezés</string>
+    <string name="headset_pref_title">Fülhallgató csatlakozó</string>
+    <string name="headset_pref_summary_on">Fülhallgató csatlakozó menedzsment tiltás</string>
+    <string name="headset_pref_summary_off">Fülhallgató csatlakozó menedzsment engedélyezés</string>
+</resources>

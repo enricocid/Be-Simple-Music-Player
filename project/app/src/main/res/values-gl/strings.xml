@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Si</string>
+    <string name="no">Non</string>
+    <string name="on_close_activity">Queres deter a reprodución?</string>
+    <string name="artists">Artistas</string>
+    <string name="folders">Cartafoles</string>
+    <string name="artist_info">%1d Álbumes, %2d Pistas</string>
+    <string name="folder_info">%1d Pistas</string>
+    <string name="sorting_pref">Ordenar</string>
+    <string name="sorting_pref_default">Por omisión</string>
+    <string name="sorting_pref_track">Por num. ↓ de pista</string>
+    <string name="sorting_pref_track_inv">Por num. ↑ de pista</string>
+    <string name="shuffle_am">Barallar todas as pistas</string>
+    <string name="shuffle_sa">Barallar álbume seleccionado</string>
+    <string name="error_no_music">Non se atopou música :(</string>
+    <string name="error_not_ready">Non se cargou a biblioteca de música! :( Podería deberse a que a tarxeta SD non está montada, forzando ó Almacenaxe de Medios de Android a reconstruír a base de datos. Inténtao máis tarde.</string>
+    <string name="error_media_buttons">Algo fallou! :( Por favor reinicia a reprodución desde a app.</string>
+    <string name="error_no_browser">Non se atopou navegador.</string>
+    <string name="error_bad_id">Reproduce primeiro unha pista.</string>
+    <string name="perm_rationale">Be Simple precisa acceder ós ficheiros para poder reproducilos.</string>
+    <string name="repeat_enabled">Activouse repetir 1 vez.</string>
+    <string name="repeat_loop_enabled">Repetir ∞ activado.</string>
+    <string name="repeat_disabled">Repetir ∞ desactivado.</string>
+    <string name="settings">Axustes</string>
+    <string name="open_git_pref_title">páxina GitHub</string>
+    <string name="open_git_pref_summary">Abre a páxina do proxecto para máis info :)</string>
+    <string name="found_songs_pref_title">Cancións atopadas: %1d</string>
+    <string name="theme_pref_title">Decorado</string>
+    <string name="theme_pref_light_title">Claro</string>
+    <string name="theme_pref_dark_title">Escuro</string>
+    <string name="theme_pref_auto_title">Automático</string>
+    <string name="focus_pref_title">Foco do Audio</string>
+    <string name="focus_pref_summary_on">Desactivar xestión do foco sobre o audio</string>
+    <string name="focus_pref_summary_off">Activar xestión do foco sobre o audio</string>
+    <string name="headset_pref_title">Conexión de auriculares</string>
+    <string name="headset_pref_summary_on">Desactivar xestión da conexión de auriculares</string>
+    <string name="headset_pref_summary_off">Activar xestión da conexión de auriculares</string>
+    <string name="song_visual_pref_fn_title">Nome do ficheiro</string>
+    <string name="song_visual_pref_tl_title">Título</string>
+    <string name="song_visual_pref_title">Visualización da canción</string>
+    <string name="equalizer_bb">Potenciar baixos</string>
+    <string name="equalizer">Ecualizador</string>
+    <string name="eq_pref_note_summary">Nota: o ecualizador do sistema terá preferencia a non ser que desactives a app \"ecualizador do sistema\" nos axustes do sistema. :)</string>
+    <string name="error_eq">Mágoa, algo fallou!</string>
+</resources>

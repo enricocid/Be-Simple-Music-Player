@@ -1,0 +1,19 @@
+# Features
+
+- Minimalistic interface
+- Equalizer
+- Light, dark, automatic themes
+- Simple audio focus and headsets management
+- Search, sorting, shuffle ...
+- Modern code base and ... Kotlin!
+
+
+# Want more?
+Check Music Player GO:
+https://github.com/enricocid/Music-Player-GO
+
+
+# Want to contribute to translations?
+
+Join us at Weblate:
+https://hosted.weblate.org/engage/music-player-go/

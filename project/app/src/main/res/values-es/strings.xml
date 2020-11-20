@@ -1,0 +1,37 @@
+<resources>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="artists">Artistas</string>
+    <string name="artist_info">%1d&#160;Álbumes,&#160;%2d&#160;Canciones</string>
+    <string name="folder_info">%1d&#160;Canciones</string>
+    <string name="shuffle_am">Cambiar orden de las canciones</string>
+    <string name="shuffle_sa">Cambiar orden del álbum seleccionado</string>
+    <string name="folders">Directorios</string>
+    <string name="perm_rationale">Be Simple necesita acceso a tus archivos para reproducir la música</string>
+    <string name="error_no_browser">¡No se encontró un navegador!</string>
+    <string name="error_bad_id">!Reproduce una canción primero!</string>
+    <string name="error_no_music">No se encontró música :(</string>
+    <string name="error_media_buttons">¡Algo malo sucedió! :( Por favor reinicia la reproducción desde la aplicación</string>
+    <string name="on_close_activity">¿Deseas detener la reproducción?</string>
+    <string name="repeat_enabled">¡Repetición 1x activada!</string>
+    <string name="repeat_loop_enabled">¡Repetición &#8734; activada!</string>
+    <string name="repeat_disabled">¡Repetición &#8734; desactivada!</string>
+    <string name="sorting_pref">Ordenamiento</string>
+    <string name="sorting_pref_track">Por nro. de récord &#8595;</string>
+    <string name="sorting_pref_track_inv">Por nro. de récord &#8593;</string>
+    <string name="settings">Preferencias</string>
+    <string name="open_git_pref_title">Página de GitHub</string>
+    <string name="open_git_pref_summary">Visita la página del proyecto para más información</string>
+    <string name="found_songs_pref_title">Canciones encontradas: %1d</string>
+    <string name="theme_pref_title">Tema</string>
+    <string name="theme_pref_light_title">Claro</string>
+    <string name="theme_pref_dark_title">Oscuro</string>
+    <string name="theme_pref_auto_title">Automático</string>
+    <string name="sorting_pref_default">Predeterminado</string>
+    <string name="focus_pref_title">Enfoque del audio focus</string>
+    <string name="focus_pref_summary_on">Desactivar manejo del enfoque del audio</string>
+    <string name="focus_pref_summary_off">Activar manejo del enfoque del audio</string>
+    <string name="headset_pref_title">Conexión de auriculares</string>
+    <string name="headset_pref_summary_on">Desactivar manejo de conexión de auriculares</string>
+    <string name="headset_pref_summary_off">Activar manejo de conexión de auriculares</string>
+</resources>
