@@ -31,7 +31,7 @@
 - [Description](#description)
 - [Download](#download)
 - [Features](#features)
-- [Translations](#translations)
+- [Translations](#want-to-contribute-to-translations)
 - [License](#license)
   - [Authors / Copyright](#authors--copyright)
   - [Third-party component licenses](#third-party-component-licenses)
