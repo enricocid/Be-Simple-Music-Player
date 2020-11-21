@@ -59,19 +59,21 @@ fun MenuItem.setTitleColor(color: Int) {
     }
 }
 
-fun FragmentManager.addFragment(fragment: Fragment, tag: String?, isReplace: Boolean) {
+fun FragmentManager.addFragment(fragment: Fragment, tag: String?) {
     beginTransaction().apply {
         addToBackStack(null)
-        if (isReplace) {
-            replace(R.id.container, fragment, tag)
-        } else {
-            add(
-                    R.id.container,
-                    fragment,
-                    tag
-            )
-        }
+        add(
+                R.id.container,
+                fragment,
+                tag
+        )
         commit()
+    }
+}
+
+fun FragmentManager.goBackFromFragment(isFragmentExpanded: Boolean) {
+    if (isFragmentExpanded && backStackEntryCount >= 1) {
+        popBackStack()
     }
 }
 

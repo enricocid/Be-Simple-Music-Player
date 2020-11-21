@@ -83,6 +83,9 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     private val sDetailsFragmentExpanded get() = supportFragmentManager.isFragment(BeSimpleConstants.DETAILS_FRAGMENT_TAG)
     private val sErrorFragmentExpanded get() = supportFragmentManager.isFragment(BeSimpleConstants.ERROR_FRAGMENT_TAG)
     private val sEqFragmentExpanded get() = supportFragmentManager.isFragment(BeSimpleConstants.EQ_FRAGMENT_TAG)
+
+    private var sCloseDetailsFragment = true
+
     private var sRevealAnimationRunning = false
 
     private var sAppearanceChanged = false
@@ -142,9 +145,14 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
     override fun onBackPressed() {
         when {
-            sDetailsFragmentExpanded -> closeDetailsFragment()
+            sDetailsFragmentExpanded and !sEqFragmentExpanded -> closeDetailsFragment()
+            !sDetailsFragmentExpanded and sEqFragmentExpanded -> closeEqualizerFragment()
+            sEqFragmentExpanded and sDetailsFragmentExpanded -> if (sCloseDetailsFragment) {
+                closeDetailsFragment()
+            } else {
+                closeEqualizerFragment()
+            }
             sErrorFragmentExpanded -> finishAndRemoveTask()
-            sEqFragmentExpanded -> closeEqualizerFragment()
             else -> if (mMainActivityBinding.viewPager2.currentItem != 0) {
                 mMainActivityBinding.viewPager2.currentItem =
                         0
@@ -255,8 +263,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         mMainActivityBinding.viewPager2.handleViewVisibility(false)
         supportFragmentManager.addFragment(
                 ErrorFragment.newInstance(errorType),
-                BeSimpleConstants.ERROR_FRAGMENT_TAG,
-                false
+                BeSimpleConstants.ERROR_FRAGMENT_TAG
         )
     }
 
@@ -296,7 +303,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
             mFragmentButtons.iterator().withIndex().forEach { fb ->
                 fb.value?.setOnClickListener {
-                    if (!sDetailsFragmentExpanded && !sEqFragmentExpanded) {
+                    synchronized(closeFragments()) {
                         currentItem = fb.index
                     }
                 }
@@ -349,6 +356,13 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
     }
 
+    private fun closeFragments() {
+        supportFragmentManager.apply {
+            goBackFromFragment(sEqFragmentExpanded)
+            goBackFromFragment(sDetailsFragmentExpanded)
+        }
+    }
+
     private fun openDetailsFragment(
             selectedArtistOrFolder: String?,
             launchedBy: String
@@ -367,10 +381,10 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
                                     mMusicViewModel.deviceAlbumsByArtist
                             )
                     )
+            sCloseDetailsFragment = true
             supportFragmentManager.addFragment(
                     mDetailsFragment,
-                    BeSimpleConstants.DETAILS_FRAGMENT_TAG,
-                    sEqFragmentExpanded
+                    BeSimpleConstants.DETAILS_FRAGMENT_TAG
             )
         }
     }
@@ -595,30 +609,31 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     }
 
     fun openPlayingArtistAlbum(view: View) {
-        if (isMediaPlayerHolder && mMediaPlayerHolder.isCurrentSong) {
-
-            val isPlayingFromFolder = mMediaPlayerHolder.launchedBy
-            val selectedSong = mMediaPlayerHolder.currentSong
-            val selectedArtistOrFolder = getSongSource(selectedSong, isPlayingFromFolder)
-            if (sDetailsFragmentExpanded) {
-                if (mDetailsFragment.hasToUpdate(selectedArtistOrFolder)) {
-                    synchronized(super.onBackPressed()) {
-                        openDetailsFragment(
-                                selectedArtistOrFolder,
-                                mMediaPlayerHolder.launchedBy
+        if (checkIsPlayer() && isMediaPlayerHolder && mMediaPlayerHolder.isCurrentSong) {
+            if (!sDetailsFragmentExpanded || sDetailsFragmentExpanded and !sEqFragmentExpanded) {
+                val isPlayingFromFolder = mMediaPlayerHolder.launchedBy
+                val selectedSong = mMediaPlayerHolder.currentSong
+                val selectedArtistOrFolder = getSongSource(selectedSong, isPlayingFromFolder)
+                if (sDetailsFragmentExpanded) {
+                    if (mDetailsFragment.hasToUpdate(selectedArtistOrFolder)) {
+                        synchronized(super.onBackPressed()) {
+                            openDetailsFragment(
+                                    selectedArtistOrFolder,
+                                    mMediaPlayerHolder.launchedBy
+                            )
+                        }
+                    } else {
+                        mDetailsFragment.tryToSnapToAlbumPosition(
+                                MusicOrgHelper.getPlayingAlbumPosition(
+                                        selectedArtistOrFolder,
+                                        mMediaPlayerHolder,
+                                        mMusicViewModel.deviceAlbumsByArtist
+                                )
                         )
                     }
                 } else {
-                    mDetailsFragment.tryToSnapToAlbumPosition(
-                            MusicOrgHelper.getPlayingAlbumPosition(
-                                    selectedArtistOrFolder,
-                                    mMediaPlayerHolder,
-                                    mMusicViewModel.deviceAlbumsByArtist
-                            )
-                    )
+                    openDetailsFragment(selectedArtistOrFolder, mMediaPlayerHolder.launchedBy)
                 }
-            } else {
-                openDetailsFragment(selectedArtistOrFolder, mMediaPlayerHolder.launchedBy)
             }
         }
     }
@@ -738,10 +753,10 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
                     if (sDetailsFragmentExpanded) {
                         mDetailsFragment.setDisableCircleReveal()
                     }
+                    sCloseDetailsFragment = !sDetailsFragmentExpanded
                     supportFragmentManager.addFragment(
                             mEqualizerFragment,
-                            BeSimpleConstants.EQ_FRAGMENT_TAG,
-                            sDetailsFragmentExpanded
+                            BeSimpleConstants.EQ_FRAGMENT_TAG
                     )
                 }
             } else {
