@@ -1,3 +1,8 @@
+# Descrizione
+
+Be Simple Music Player è un lettore musicale estremamente minimale derivato da 
+<a href="https://f-droid.org/packages/com.iven.musicplayergo/">Music Player GO</a>! :)
+
 # Caratteristiche
 
 - Interfaccia minimalista
@@ -9,11 +14,10 @@
 
 
 # Vuoi di più?
-Dai una occhiata a Music Player GO:
-https://f-droid.org/packages/com.iven.musicplayergo/
+
+Dai una occhiata a <a href="https://f-droid.org/packages/com.iven.musicplayergo/">Music Player GO</a>
 
 
 # Vuoi contribuire alle traduzioni?
 
-Unisciti a noi su Weblate:
-https://hosted.weblate.org/engage/music-player-go/
+Unisciti a noi su <a href="https://hosted.weblate.org/engage/music-player-go/">Weblate</a>

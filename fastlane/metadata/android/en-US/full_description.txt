@@ -1,3 +1,8 @@
+# Description
+
+Be Simple Music Player is an extremely minimal local Music Player based on
+<a href="https://f-droid.org/packages/com.iven.musicplayergo/">Music Player GO</a>! :)
+
 # Features
 
 - Minimalistic interface
@@ -9,11 +14,10 @@
 
 
 # Want more?
-Check Music Player GO:
-https://github.com/enricocid/Music-Player-GO
+
+Check <a href="https://f-droid.org/packages/com.iven.musicplayergo/">Music Player GO</a>
 
 
 # Want to contribute to translations?
 
-Join us at Weblate:
-https://hosted.weblate.org/engage/music-player-go/
+Join us at <a href="https://hosted.weblate.org/engage/music-player-go/">Weblate</a>
