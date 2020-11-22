@@ -1,0 +1,9 @@
+<i>Be Simple Music Player</i> ist ein extrem-minimalistischer lokaler Music Player, der auf <a href="https://f-droid.org/packages/com.iven.musicplayergo/">Music Player GO</a> basiert.
+
+<b>Features:</b>
+
+* Minimalistisches Interface
+* Equalizer
+* Helles, dunkles und automatisches Theme
+* Einfache Verwaltung von Audio-Fokus und Kopfhörern
+* Suchen, sortieren, shuffle ...
