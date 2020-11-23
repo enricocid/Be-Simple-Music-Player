@@ -139,7 +139,7 @@ object ThemeHelper {
             TypedValue().apply { context.theme.resolveAttribute(attrRes, this, true) }
 
     @JvmStatic
-    fun createColouredRipple(context: Context, rippleColor: Int, rippleId: Int): Drawable? {
+    fun createColouredRipple(context: Context, rippleColor: Int, rippleId: Int): Drawable {
         val ripple = AppCompatResources.getDrawable(context, rippleId) as RippleDrawable
         return ripple.apply {
             setColor(ColorStateList.valueOf(rippleColor))
