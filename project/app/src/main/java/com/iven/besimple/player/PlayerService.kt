@@ -79,15 +79,19 @@ class PlayerService : Service() {
 
             mediaPlayerHolder.release()
             isRunning = false
-            if (::mWakeLock.isInitialized && mWakeLock.isHeld) {
-                mWakeLock.release()
-            }
+            releaseWakeLock()
         }
     }
 
     fun acquireWakeLock() {
-        if (::mWakeLock.isInitialized) {
+        if (::mWakeLock.isInitialized && !mWakeLock.isHeld) {
             mWakeLock.acquire(WAKELOCK_MILLI)
+        }
+    }
+
+    fun releaseWakeLock() {
+        if (::mWakeLock.isInitialized && mWakeLock.isHeld) {
+            mWakeLock.release()
         }
     }
 
