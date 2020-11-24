@@ -9,8 +9,8 @@ android {
         applicationId "com.iven.besimple"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.4"
 
         vectorDrawables.useSupportLibrary = true
     }
