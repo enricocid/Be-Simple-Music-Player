@@ -54,7 +54,7 @@ This repo contains the source code of the **Be Simple Music Player** Android app
     alt="Get it on IzzyOnDroid"
     height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.iven.besimple)
     
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+[<img src="https://gitlab.com/enricocid/custom-badges/-/raw/master/badge_get-it-on-coming-soon.png"
     alt="Get it on F-Droid"
     height="80">](https://f-droid.org/packages/com.iven.besimple/)
     
