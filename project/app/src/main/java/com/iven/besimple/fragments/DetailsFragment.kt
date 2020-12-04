@@ -32,7 +32,6 @@ import com.iven.besimple.models.Music
 import com.iven.besimple.ui.AlbumsViewHolder
 import com.iven.besimple.ui.GenericViewHolder
 import com.iven.besimple.ui.UIControlInterface
-import kotlinx.android.synthetic.main.fragment_details.*
 
 
 /**
@@ -241,7 +240,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
         } else {
 
             mDetailsFragmentBinding.albumsRv.handleViewVisibility(false)
-            selected_album_container.handleViewVisibility(false)
+            mDetailsFragmentBinding.selectedAlbumContainer.handleViewVisibility(false)
 
             mDetailsFragmentBinding.detailsToolbar.subtitle = getString(
                 R.string.folder_info,
@@ -437,7 +436,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
     private fun setupAlbumsContainer() {
 
-        selected_album_container.setOnClickListener {
+        mDetailsFragmentBinding.selectedAlbumContainer.setOnClickListener {
             mAlbumsRecyclerViewLayoutManager.scrollToPositionWithOffset(
                 mSelectedAlbumPosition,
                 0
@@ -539,7 +538,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
     private fun updateSelectedAlbumTitle() {
         mDetailsFragmentBinding.selectedAlbum.text = mSelectedAlbum?.title
-        album_year_duration.text = getString(
+        mDetailsFragmentBinding.albumYearDuration.text = getString(
             R.string.year_and_duration,
             mSelectedAlbum?.totalDuration?.toFormattedDuration(isAlbum = true, isSeekBar = false),
             mSelectedAlbum?.year
