@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.preference.PreferenceManager
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.iven.besimple.models.Music
 import com.iven.besimple.models.SavedEqualizerSettings
-import com.iven.besimple.models.SavedMusic
 import java.lang.reflect.Type
 
 class BeSimplePreferences(context: Context) {
@@ -31,19 +31,19 @@ class BeSimplePreferences(context: Context) {
     private val typeSavedEqualizerSettings = object : TypeToken<SavedEqualizerSettings>() {}.type
 
     // last played song is a SavedMusic
-    private val typeLastPlayedSong = object : TypeToken<SavedMusic>() {}.type
+    private val typeLastPlayedSong = object : TypeToken<Music>() {}.type
 
-    var latestPlayedSong: SavedMusic?
+    var latestPlayedSong: Music?
         get() = getObject(
-                prefsLatestPlayedSong,
-                typeLastPlayedSong
+            prefsLatestPlayedSong,
+            typeLastPlayedSong
         )
         set(value) = putObject(prefsLatestPlayedSong, value)
 
     var savedEqualizerSettings: SavedEqualizerSettings?
         get() = getObject(
-                prefsSavedEqualizerSettings,
-                typeSavedEqualizerSettings
+            prefsSavedEqualizerSettings,
+            typeSavedEqualizerSettings
         )
         set(value) = putObject(prefsSavedEqualizerSettings, value)
 

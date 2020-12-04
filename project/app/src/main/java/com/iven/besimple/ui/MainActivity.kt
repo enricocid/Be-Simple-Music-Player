@@ -482,17 +482,14 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
                     val song =
                         if (isSongRestoredFromPrefs) {
-                            MusicOrgHelper.getSongForRestore(
-                                beSimplePreferences.latestPlayedSong,
-                                mMusicViewModel.deviceMusicList
-                            )
+                            beSimplePreferences.latestPlayedSong
                         } else {
                             mMusicViewModel.randomMusic
                         }
 
                     val songs = MusicOrgHelper.getAlbumSongs(
-                        song.artist,
-                        song.album,
+                        song?.artist,
+                        song?.album,
                         mMusicViewModel.deviceAlbumsByArtist
                     )
 
