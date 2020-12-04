@@ -493,10 +493,10 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
                                     .build()
                     )
                 }
+            }
 
-                if (sFocusEnabled && isPlay) {
-                    tryToGetAudioFocus()
-                }
+            if (sFocusEnabled && isPlay) {
+                tryToGetAudioFocus()
             }
 
             song?.id?.toContentUri()?.let { uri ->
