@@ -1,6 +1,5 @@
 package com.iven.besimple.helpers
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -9,11 +8,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.RippleDrawable
-import android.os.Build
 import android.util.TypedValue
-import android.view.View
-import android.view.Window
-import android.view.WindowInsetsController
 import android.widget.ImageButton
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
@@ -35,9 +30,9 @@ object ThemeHelper {
         val intent = Intent(activity, MainActivity::class.java)
 
         intent.addFlags(
-                Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        or Intent.FLAG_ACTIVITY_NEW_TASK
+            Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    or Intent.FLAG_ACTIVITY_NEW_TASK
         )
         activity.run {
             finishAfterTransition()
@@ -75,44 +70,12 @@ object ThemeHelper {
 
     @JvmStatic
     fun isDeviceLand(resources: Resources) =
-            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-
-    @JvmStatic
-    private fun isThemeNight(configuration: Configuration) =
-            configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-
-    @JvmStatic
-    @TargetApi(Build.VERSION_CODES.O_MR1)
-    @Suppress("DEPRECATION")
-    fun handleLightSystemBars(configuration: Configuration, window: Window) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val controller = window.insetsController
-            if (controller != null) {
-                val appearance =
-                        WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS or WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                val mask = if (isThemeNight(configuration)) {
-                    0
-                } else {
-                    appearance
-                }
-                controller.setSystemBarsAppearance(mask, appearance)
-            }
-        } else {
-            val decorView = window.decorView
-            val flags = decorView.systemUiVisibility
-            decorView.systemUiVisibility =
-                    if (isThemeNight(configuration)) {
-                        flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv() and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
-                    } else {
-                        flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
-                    }
-        }
-    }
+        resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     @JvmStatic
     fun updateIconTint(imageButton: ImageButton, tint: Int) {
         ImageViewCompat.setImageTintList(
-                imageButton, ColorStateList.valueOf(tint)
+            imageButton, ColorStateList.valueOf(tint)
         )
     }
 
@@ -120,23 +83,23 @@ object ThemeHelper {
     @JvmStatic
     fun resolveColorAttr(context: Context, @AttrRes colorAttr: Int): Int {
         val resolvedAttr: TypedValue =
-                resolveThemeAttr(
-                        context,
-                        colorAttr
-                )
+            resolveThemeAttr(
+                context,
+                colorAttr
+            )
         // resourceId is used if it's a ColorStateList, and data if it's a color reference or a hex color
         val colorRes =
-                if (resolvedAttr.resourceId != 0) {
-                    resolvedAttr.resourceId
-                } else {
-                    resolvedAttr.data
-                }
+            if (resolvedAttr.resourceId != 0) {
+                resolvedAttr.resourceId
+            } else {
+                resolvedAttr.data
+            }
         return colorRes.decodeColor(context)
     }
 
     @JvmStatic
     private fun resolveThemeAttr(context: Context, @AttrRes attrRes: Int) =
-            TypedValue().apply { context.theme.resolveAttribute(attrRes, this, true) }
+        TypedValue().apply { context.theme.resolveAttribute(attrRes, this, true) }
 
     @JvmStatic
     fun createColouredRipple(context: Context, rippleColor: Int, rippleId: Int): Drawable {

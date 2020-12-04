@@ -212,12 +212,6 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         setContentView(mMainActivityBinding.root)
 
         if (VersioningHelper.isOreoMR1()) {
-            window.run {
-                val sbColor = R.color.windowBackground.decodeColor(this@MainActivity)
-                statusBarColor = sbColor
-                navigationBarColor = sbColor
-                ThemeHelper.handleLightSystemBars(resources.configuration, this)
-            }
             edgeToEdge {
                 mMainActivityBinding.root.fit { Edge.Top + Edge.Bottom }
             }
