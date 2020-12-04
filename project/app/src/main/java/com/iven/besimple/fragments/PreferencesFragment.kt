@@ -62,9 +62,8 @@ class PreferencesFragment : PreferenceFragmentCompat(),
         ViewModelProvider(requireActivity()).get(MusicViewModel::class.java).apply {
             deviceMusic.observe(viewLifecycleOwner, { returnedMusic ->
                 if (!returnedMusic.isNullOrEmpty()) {
-                    findPreference<Preference>(getString(R.string.found_songs_pref))?.apply {
-                        title =
-                                getString(R.string.found_songs_pref_title, musicDatabaseSize)
+                    findPreference<Preference>(getString(R.string.found_songs_pref))?.let { preference ->
+                        preference.title = getString(R.string.found_songs_pref_title, musicDatabaseSize)
                     }
                 }
             })

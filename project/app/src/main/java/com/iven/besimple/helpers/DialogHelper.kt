@@ -16,7 +16,7 @@ object DialogHelper {
             context: Context,
             mediaPlayerHolder: MediaPlayerHolder
     ) {
-        context.apply {
+        context.run {
             MaterialAlertDialogBuilder(this)
                     .setTitle(resources.getString(R.string.app_name))
                     .setMessage(resources.getString(R.string.on_close_activity))
@@ -37,7 +37,7 @@ object DialogHelper {
             activity: Activity,
             uiControlInterface: UIControlInterface
     ) {
-        activity.apply {
+        activity.run {
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                             this,
                             Manifest.permission.READ_EXTERNAL_STORAGE

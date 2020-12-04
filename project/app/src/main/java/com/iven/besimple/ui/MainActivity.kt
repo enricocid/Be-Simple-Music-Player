@@ -7,12 +7,10 @@ import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.media.audiofx.BassBoost
 import android.media.audiofx.Equalizer
 import android.os.Bundle
 import android.os.IBinder
-import android.view.View
 import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -84,15 +82,17 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     private var sBound = false
     private lateinit var mBindingIntent: Intent
 
-    private fun checkIsPlayer() = mMediaPlayerHolder.apply {
-        if (!isMediaPlayer && !isSongRestoredFromPrefs) {
+    private fun checkIsPlayer(): Boolean {
+        if (!isMediaPlayerHolder && !mMediaPlayerHolder.isMediaPlayer && !mMediaPlayerHolder.isSongRestoredFromPrefs) {
             getString(
                 R.string.error_bad_id
             ).toToast(
                 this@MainActivity
             )
+            return false
         }
-    }.isMediaPlayer
+        return true
+    }
 
     // Defines callbacks for service binding, passed to bindService()
     private val connection = object : ServiceConnection {
@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         super.onPause()
         if (isMediaPlayerHolder && mMediaPlayerHolder.isMediaPlayer) {
             saveSongToPref()
-            mMediaPlayerHolder.apply {
+            mMediaPlayerHolder.run {
                 onPauseSeekBarCallback()
                 if (!isPlaying) {
                     mMediaPlayerHolder.giveUpAudioFocus()
@@ -212,11 +212,10 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         setContentView(mMainActivityBinding.root)
 
         if (VersioningHelper.isOreoMR1()) {
-            window?.apply {
-                if (!VersioningHelper.isQ()) {
-                    statusBarColor = Color.TRANSPARENT
-                    navigationBarColor = Color.TRANSPARENT
-                }
+            window.run {
+                val sbColor = R.color.windowBackground.decodeColor(this@MainActivity)
+                statusBarColor = sbColor
+                navigationBarColor = sbColor
                 ThemeHelper.handleLightSystemBars(resources.configuration, this)
             }
             edgeToEdge {
@@ -273,7 +272,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
         val pagerAdapter = ScreenSlidePagerAdapter(this)
 
-        mMainActivityBinding.viewPager2.apply {
+        mMainActivityBinding.viewPager2.run {
             offscreenPageLimit = 2
             adapter = pagerAdapter
 
@@ -344,7 +343,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     }
 
     private fun closeFragments() {
-        supportFragmentManager.apply {
+        supportFragmentManager.run {
             goBackFromFragment(sEqFragmentExpanded)
             goBackFromFragment(sDetailsFragmentExpanded)
         }
@@ -390,7 +389,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     }
 
     private fun initMediaButtons() {
-        mPlayerControlsPanelBinding.apply {
+        mPlayerControlsPanelBinding.run {
             songProgress.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
 
                 var isUserSeeking = false
@@ -417,14 +416,21 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
                     .toFormattedDuration(isAlbum = false, isSeekBar = true)
             }
 
+            playingSongContainer.setOnClickListener { openPlayingArtistAlbum() }
+
             skipPrev.setOnClickListener { skip(false) }
+            playPauseButton.setOnClickListener { resumeOrPause() }
             skipNext.setOnClickListener { skip(true) }
+            repeat.setOnClickListener { setRepeat() }
+            equalizer.setOnClickListener { openEqualizer() }
         }
     }
 
     private fun saveSongToPref() {
-        if (::mMediaPlayerHolder.isInitialized && !mMediaPlayerHolder.isPlaying || mMediaPlayerHolder.state == BeSimpleConstants.PAUSED) mMediaPlayerHolder.apply {
-            MusicOrgHelper.saveLatestSong(currentSong, mMediaPlayerHolder, launchedBy)
+        if (::mMediaPlayerHolder.isInitialized && !mMediaPlayerHolder.isPlaying || mMediaPlayerHolder.state == BeSimpleConstants.PAUSED) {
+            mMediaPlayerHolder.run {
+                MusicOrgHelper.saveLatestSong(currentSong, this, launchedBy)
+            }
         }
     }
 
@@ -463,7 +469,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         if (isMediaPlayerHolder) {
             // If we are playing and the activity was restarted
             // update the controls panel
-            mMediaPlayerHolder.apply {
+            mMediaPlayerHolder.run {
 
                 if (isMediaPlayer && mMediaPlayerHolder.isPlaying) {
 
@@ -502,7 +508,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
                         updatePlayingInfo(false)
 
-                        mPlayerControlsPanelBinding.apply {
+                        mPlayerControlsPanelBinding.run {
                             val startFrom = if (isSongRestoredFromPrefs) {
                                 beSimplePreferences.latestPlayedSong?.startFrom!!
                             } else {
@@ -556,7 +562,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
             if (::mPlayerService.isInitialized) {
                 //stop foreground if coming from pause state
-                mPlayerService.apply {
+                mPlayerService.run {
                     if (isRestoredFromPause) {
                         stopForeground(false)
                         musicNotificationManager.updateNotification()
@@ -570,7 +576,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     private fun updateRepeatStatus(onPlaybackCompletion: Boolean) {
 
         val resolveIconsColor = R.color.widgetsColor.decodeColor(this)
-        mPlayerControlsPanelBinding.apply {
+        mPlayerControlsPanelBinding.run {
 
             repeat.setImageResource(
                 ThemeHelper.getRepeatIcon(
@@ -604,7 +610,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         }
     }
 
-    fun openPlayingArtistAlbum(view: View) {
+    private fun openPlayingArtistAlbum() {
         if (checkIsPlayer() && isMediaPlayerHolder && mMediaPlayerHolder.isCurrentSong) {
             if (!sDetailsFragmentExpanded || sDetailsFragmentExpanded and !sEqFragmentExpanded) {
                 val isPlayingFromFolder = mMediaPlayerHolder.launchedBy
@@ -677,7 +683,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
                     mBindingIntent
                 )
             }
-            mMediaPlayerHolder.apply {
+            mMediaPlayerHolder.run {
                 setCurrentSong(song, songs, launchedBy)
                 initMediaPlayer(song)
             }
@@ -686,17 +692,15 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
 
     override fun onSongSelected(song: Music?, songs: List<Music>?, launchedBy: String) {
         if (isMediaPlayerHolder) {
-            mMediaPlayerHolder.apply {
+            mMediaPlayerHolder.run {
                 isSongRestoredFromPrefs = false
-                if (!isPlay) {
-                    isPlay = true
-                }
+                isPlay = true
                 startPlayback(song, songs, launchedBy)
             }
         }
     }
 
-    fun resumeOrPause(view: View) {
+    private fun resumeOrPause() {
         if (checkIsPlayer()) {
             mMediaPlayerHolder.resumeOrPause()
         }
@@ -719,7 +723,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         }
     }
 
-    fun setRepeat(view: View) {
+    private fun setRepeat() {
         if (checkIsPlayer()) {
             mMediaPlayerHolder.repeat(mMediaPlayerHolder.isPlaying)
             updateRepeatStatus(false)
@@ -741,7 +745,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         mMediaPlayerHolder.onSaveEqualizerSettings(selectedPreset, bassBoost)
     }
 
-    fun openEqualizer(view: View) {
+    private fun openEqualizer() {
         if (checkIsPlayer()) {
             if (!EqualizerUtils.hasEqualizer(this)) {
                 if (!sEqFragmentExpanded) {

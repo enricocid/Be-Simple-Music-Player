@@ -161,7 +161,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     }
 
     private fun setupToolbar() {
-        mDetailsFragmentBinding.detailsToolbar.apply {
+        mDetailsFragmentBinding.detailsToolbar.run {
 
             overflowIcon = AppCompatResources.getDrawable(
                 requireActivity(),
@@ -193,7 +193,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     }
 
     private fun setupToolbarSpecs() {
-        mDetailsFragmentBinding.detailsToolbar.apply {
+        mDetailsFragmentBinding.detailsToolbar.run {
             elevation = if (!sLaunchedByArtistView) {
                 resources.getDimensionPixelSize(R.dimen.search_bar_elevation).toFloat()
             } else {
@@ -224,7 +224,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
             setupAlbumsContainer()
 
-            mDetailsFragmentBinding.sortButton.apply {
+            mDetailsFragmentBinding.sortButton.run {
                 setOnClickListener {
                     mSongsSorting = ListsHelper.getSongsSorting(mSongsSorting)
                     setImageResource(ThemeHelper.resolveSortAlbumSongsIcon(mSongsSorting))
@@ -249,7 +249,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
             val searchView =
                 mDetailsFragmentBinding.detailsToolbar.menu.findItem(R.id.action_search).actionView as SearchView
-            searchView.apply {
+            searchView.run {
                 setOnQueryTextListener(this@DetailsFragment)
                 setOnQueryTextFocusChangeListener { _, hasFocus ->
                     mDetailsFragmentBinding.detailsToolbar.menu.setGroupVisible(
@@ -268,7 +268,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
             }
         )
 
-        mDetailsFragmentBinding.songsRv.apply {
+        mDetailsFragmentBinding.songsRv.run {
 
             // setup{} is an extension method on RecyclerView
             setup {
@@ -332,14 +332,14 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     }
 
     private fun setAlbumsDataSource(albumsList: List<Album>?) {
-        albumsList?.apply {
-            mSelectedAlbumsDataSource.set(this)
+        albumsList?.let { albums ->
+            mSelectedAlbumsDataSource.set(albums)
         }
     }
 
     private fun setSongsDataSource(musicList: List<Music>?) {
         if (sLaunchedByArtistView) {
-            mDetailsFragmentBinding.sortButton.apply {
+            mDetailsFragmentBinding.sortButton.run {
                 isEnabled = mSelectedAlbum?.music?.size!! >= 2
                 ThemeHelper.updateIconTint(
                     this,
@@ -357,8 +357,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                 mSelectedAlbum?.music?.size!! >= 2
         }
 
-        musicList?.apply {
-            mSongsDataSource.set(this)
+        musicList?.let { music ->
+            mSongsDataSource.set(music)
         }
     }
 
@@ -374,7 +374,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
     private fun setupMenu() {
 
-        mDetailsFragmentBinding.detailsToolbar.apply {
+        mDetailsFragmentBinding.detailsToolbar.run {
 
             val menuToInflate = when {
                 sLaunchedByArtistView -> R.menu.menu_artist_details
@@ -384,7 +384,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
             inflateMenu(menuToInflate)
 
-            menu.apply {
+            menu.run {
                 findItem(R.id.action_shuffle_am).isEnabled =
                     if (sLaunchedByArtistView) {
                         mSelectedArtistAlbums?.size!! >= 2
@@ -455,7 +455,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
             mSongsList?.size
         )
 
-        mDetailsFragmentBinding.albumsRv.apply {
+        mDetailsFragmentBinding.albumsRv.run {
 
             setHasFixedSize(true)
             setItemViewCacheSize(25)
@@ -493,13 +493,14 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
                         if (index != mSelectedAlbumPosition) {
 
-                            adapter?.apply {
+                            adapter?.let { albumsAdapter ->
 
-                                notifyItemChanged(
-                                    mSelectedAlbumPosition
-                                )
-
-                                notifyItemChanged(index)
+                                albumsAdapter.run {
+                                    notifyItemChanged(
+                                        mSelectedAlbumPosition
+                                    )
+                                    notifyItemChanged(index)
+                                }
 
                                 mSelectedAlbum = item
                                 mSelectedAlbumPosition = index

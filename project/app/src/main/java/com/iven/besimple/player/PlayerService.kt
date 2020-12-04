@@ -64,7 +64,7 @@ class PlayerService : Service() {
 
         if (::mediaPlayerHolder.isInitialized && mediaPlayerHolder.isCurrentSong) {
             // Saves last played song and its position
-            mediaPlayerHolder.apply {
+            mediaPlayerHolder.run {
                 currentSong?.let { musicToSave ->
                     beSimplePreferences.latestPlayedSong =
                             musicToSave.toSavedMusic(playerPosition, launchedBy)

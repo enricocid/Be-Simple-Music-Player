@@ -94,7 +94,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
     }
 
     private fun finishSetup() {
-        mMusicContainerListBinding.artistsFoldersRv.apply {
+        mMusicContainerListBinding.artistsFoldersRv.run {
 
             // setup{} is an extension method on RecyclerView
             setup {
@@ -124,7 +124,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
 
         setupIndicatorFastScrollerView()
 
-        mMusicContainerListBinding.searchToolbar.apply {
+        mMusicContainerListBinding.searchToolbar.run {
 
             inflateMenu(R.menu.menu_search)
 
@@ -137,7 +137,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                 mUIControlInterface.onCloseActivity()
             }
 
-            menu.apply {
+            menu.run {
 
                 mSortMenuItem = ListsHelper.getSelectedSorting(mSorting, this).apply {
                     setTitleColor(R.color.blue.decodeColor(requireActivity()))
@@ -145,7 +145,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
 
                 val searchView = findItem(R.id.action_search).actionView as SearchView
 
-                searchView.apply {
+                searchView.run {
                     setOnQueryTextListener(this@MusicContainersListFragment)
                     setOnQueryTextFocusChangeListener { _, hasFocus ->
                         if (sIsFastScrollerVisible) {
@@ -249,15 +249,16 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                 mMusicContainerListBinding.fastscroller.setupWithRecyclerView(
                     this,
                     { position ->
-                        val item = mList?.get(position) // Get your model object
-                        // or fetch the section at [position] from your database
-
-                        FastScrollItemIndicator.Text(
-                            item?.substring(
-                                0,
-                                1
-                            )?.toUpperCase()!! // Grab the first letter and capitalize it
-                        ) // Return a text tab_indicator
+                        // Return a text tab_indicator
+                        mList?.get(position)?.let { item ->
+                            var charAtZero = ""
+                            if (item.isNotEmpty()) {
+                                charAtZero = item[0].toString()
+                            }
+                            FastScrollItemIndicator.Text(
+                                charAtZero.toUpperCase() // Grab the first letter and capitalize it
+                            )
+                        }
                     }, showIndicator = { _, indicatorPosition, totalIndicators ->
                         // Hide every other indicator
                         if (ThemeHelper.isDeviceLand(resources)) {
