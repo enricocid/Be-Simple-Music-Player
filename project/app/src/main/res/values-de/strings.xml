@@ -2,7 +2,7 @@
 <resources>
     <string name="error_bad_id">Spiel zuerst ein Lied.</string>
     <string name="error_no_browser">Kein Webbrowser gefunden.</string>
-    <string name="perm_rationale">Be Simple benötigt Zugriff auf deine Dateien, um Musik abspielen zu können.</string>
+    <string name="perm_rationale">Music Player GO benötigt Zugriff auf deine Dateien, um Musik abspielen zu können.</string>
     <string name="artist_info">%1d Alben, %2d Lieder</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>

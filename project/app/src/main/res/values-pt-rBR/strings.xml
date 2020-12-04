@@ -8,7 +8,7 @@
     <string name="shuffle_am">Reproduzir todas as músicas aleatoriamente</string>
     <string name="shuffle_sa">Reproduzir aleatoriamente o álbum selecionado</string>
     <string name="folders">Pastas</string>
-    <string name="perm_rationale">Be Simple precisa acessar seus arquivos para reproduzir música.</string>
+    <string name="perm_rationale">Music Player GO precisa acessar seus arquivos para reproduzir música.</string>
     <string name="error_no_browser">Nenhum navegador encontrado.</string>
     <string name="error_bad_id">Toque uma música primeiro.</string>
     <string name="error_no_music">Nenhuma música encontrada :(</string>

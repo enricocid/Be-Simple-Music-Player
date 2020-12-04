@@ -17,7 +17,7 @@
     <string name="error_media_buttons">केहि गलत भयो! :( कृपया अनुप्रयोगबाट प्लेब्याक पुनःस्टार्ट गर्नुहोस्।</string>
     <string name="error_no_browser">कुनै ब्राउजर फेला परेन!</string>
     <string name="error_bad_id">पहिले गीत बजाउनुहोस्!</string>
-    <string name="perm_rationale">Be Simple लाई संगीत बजाउनको लागि तपाईंको फाईलहरूमा पहुँच आवश्यक छ!</string>
+    <string name="perm_rationale">Music Player GO लाई संगीत बजाउनको लागि तपाईंको फाईलहरूमा पहुँच आवश्यक छ!</string>
     <string name="repeat_enabled">दोहोर्याउनुहोस् 1x सक्षम गरियो!</string>
     <string name="repeat_loop_enabled">दोहोर्याउनुहोस् &#8734; सक्षम!</string>
     <string name="repeat_disabled">दोहोर्याउनुहोस् &#8734; अक्षम!</string>

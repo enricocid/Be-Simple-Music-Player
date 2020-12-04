@@ -6,7 +6,7 @@
     <string name="artists">Artis</string>
     <string name="folders">Folder</string>
     <string name="artist_info">%1d Album, %2d Lagu</string>
-    <string name="folder_info">%2d Lagu</string>
+    <string name="folder_info">%1d Lagu</string>
     <string name="sorting_pref">Urutan</string>
     <string name="sorting_pref_default">Bawaan</string>
     <string name="sorting_pref_track">No. Trek ↓</string>
@@ -14,17 +14,17 @@
     <string name="shuffle_am">Shuffle semua lagu</string>
     <string name="shuffle_sa">Shuffle album yang dipilih</string>
     <string name="error_no_music">Musik tidak ditemukan :(</string>
-    <string name="error_not_ready">Ada masalah saat memuat pustaka musik! :( Mungkin disebabkan oleh kartu sd yang tidak lagi terpasang dan memaksa MediaStore Android membangun ulang basis datanya. Solusi: silakan coba lagi nanti :)</string>
-    <string name="error_media_buttons">Telah terjadi kesalahan! :( Silakan mulai ulang pemutaran dari aplikasi</string>
-    <string name="error_no_browser">Peramban tidak ditemukan!</string>
-    <string name="error_bad_id">Putar lagu terlebih dahulu!</string>
-    <string name="perm_rationale">Be Simple membutuhkan akses ke berkas musik untuk dapat memutar musik!</string>
-    <string name="repeat_enabled">1x pengulangan diaktifkan!</string>
-    <string name="repeat_loop_enabled">∞ pengulangan diaktifkan!</string>
-    <string name="repeat_disabled">∞ pengulangan dinonaktifkan!</string>
+    <string name="error_not_ready">Tidak bisa memuat pustaka musik! :( Mungkin disebabkan oleh kartu sd yang tidak lagi terpasang dan memaksa MediaStore Android membangun ulang basis datanya. Silakan coba lagi nanti.</string>
+    <string name="error_media_buttons">Telah terjadi kesalahan! :( Silakan mulai ulang pemutaran dari aplikasi.</string>
+    <string name="error_no_browser">Peramban tidak ditemukan.</string>
+    <string name="error_bad_id">Putar lagu terlebih dahulu.</string>
+    <string name="perm_rationale">Music Player GO membutuhkan akses ke berkas musik untuk memutar musik.</string>
+    <string name="repeat_enabled">1x pengulangan diaktifkan.</string>
+    <string name="repeat_loop_enabled">∞ pengulangan diaktifkan.</string>
+    <string name="repeat_disabled">∞ pengulangan dinonaktifkan.</string>
     <string name="settings">Pengaturan</string>
     <string name="open_git_pref_title">Laman GitHub</string>
-    <string name="open_git_pref_summary">Buka halaman proyek untuk informasi lebih lanjut :)</string>
+    <string name="open_git_pref_summary">Buka halaman web proyek untuk informasi lebih lanjut :)</string>
     <string name="found_songs_pref_title">Jumlah lagu: %1d</string>
     <string name="theme_pref_title">Tema</string>
     <string name="theme_pref_light_title">Terang</string>
@@ -41,4 +41,6 @@
     <string name="song_visual_pref_title">Visualisasi lagu</string>
     <string name="equalizer_bb">Penguat bas</string>
     <string name="equalizer">Equalizer</string>
+    <string name="eq_pref_note_summary">Catatan: Equalizer sistem akan dipilih kecuali anda menonaktifkan \"equalizer sistem\" dari pengaturan sistem. :)</string>
+    <string name="error_eq">Ups, telah terjadi kesalahan!</string>
 </resources>

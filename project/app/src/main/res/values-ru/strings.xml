@@ -2,9 +2,9 @@
 <resources>
     <string name="yes">да</string>
     <string name="no">нет</string>
-    <string name="error_bad_id">Сначала выберите песню!</string>
-    <string name="error_no_browser">Браузер не найден!</string>
-    <string name="perm_rationale">Для воспроизведения музыки нужен доступ Music Player-GO к Вашим файлам</string>
+    <string name="error_bad_id">Сначала выберите песню.</string>
+    <string name="error_no_browser">Браузер не найден.</string>
+    <string name="perm_rationale">Для воспроизведения музыки нужен доступ Music Player-GO к Вашим файлам.</string>
     <string name="artist_info">%1d Aльбомов, %2d Песен</string>
     <string name="artists">Исполнители</string>
     <string name="focus_pref_summary_off">Включить управление фокусировкой аудио</string>
@@ -17,9 +17,9 @@
     <string name="headset_pref_title">Гарнитура</string>
     <string name="on_close_activity">Вы хотите остановить воспроизведение?</string>
     <string name="open_git_pref_title">Страница на GitHub</string>
-    <string name="open_git_pref_summary">Откройте страницу проекта для что бы узнать больше :)</string>
-    <string name="repeat_disabled">Однократное повторение выключено!</string>
-    <string name="repeat_enabled">Однократное повторение включено!</string>
+    <string name="open_git_pref_summary">Откройте свойства проекта что бы узнать детальнее</string>
+    <string name="repeat_disabled">Однократное повторение выключено.</string>
+    <string name="repeat_enabled">Однократное повторение включено.</string>
     <string name="settings">Настройки</string>
     <string name="shuffle_am">Перемешать треки</string>
     <string name="shuffle_sa">Перемешать выбранный альбом</string>
@@ -32,10 +32,10 @@
     <string name="sorting_pref_track">По номеру трека ↓</string>
     <string name="sorting_pref_track_inv">По номеру трека ↑</string>
     <string name="found_songs_pref_title">Найдены треки: %1d</string>
-    <string name="repeat_loop_enabled">Повтор ∞ включен!</string>
+    <string name="repeat_loop_enabled">Повтор ∞ включен.</string>
     <string name="error_no_music">Музыка не найдена :(</string>
-    <string name="error_media_buttons">Что-то пошло не так! :( Пожалуйста перезапустите воспроизведение из приложения</string>
-    <string name="error_not_ready">Случилась ошибка при загрузке музыкальной библиотеки! :( Вероятнее всего это случилось по причине того, что карта памяти временами отключается, заставляя MediaStore андроида пересобирать заново свою базу данных. Решение: попробовать еще раз поздже :)</string>
+    <string name="error_media_buttons">Что-то пошло не так! :( Пожалуйста перезапустите воспроизведение из приложения.</string>
+    <string name="error_not_ready">При загрузке музыкальной библиотеки возникла проблема! :( Это могло произойти из-за того, что SD-карта была отключена, из-за чего магазин Android MediaStore перестроил свои записи в базе данных. Решение: Повторите попытку позже.</string>
     <string name="eq_pref_note_summary">Примечание. Системный эквалайзер будет предпочтительнее, если вы не отключите приложение \"Системный эквалайзер\" в системных настройках. :)</string>
     <string name="song_visual_pref_fn_title">Имя файла</string>
     <string name="song_visual_pref_tl_title">Название</string>

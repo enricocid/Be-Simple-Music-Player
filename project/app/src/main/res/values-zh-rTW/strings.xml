@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dialogs / Buttons -->
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="on_close_activity">您要停止播放嗎？</string>

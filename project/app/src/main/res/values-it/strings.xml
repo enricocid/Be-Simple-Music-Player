@@ -10,7 +10,7 @@
     <string name="folders">Cartelle</string>
     <string name="equalizer">Equalizzatore</string>
     <string name="equalizer_bb">Potenziamento bassi</string>
-    <string name="perm_rationale">Be Simple deve poter accedere ai tuoi file per eseguire la musica.</string>
+    <string name="perm_rationale">Music Player GO deve poter accedere ai tuoi file per eseguire la musica.</string>
     <string name="error_no_browser">Nessun web browser trovato.</string>
     <string name="error_bad_id">Magari esegui una canzone.</string>
     <string name="error_no_music">Nessuna canzone trovata :(</string>

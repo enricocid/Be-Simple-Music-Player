@@ -8,7 +8,7 @@
     <string name="shuffle_am">Lecture aléatoire de tous les titres</string>
     <string name="shuffle_sa">Lecture aléatoire de l\'album</string>
     <string name="folders">Dossiers</string>
-    <string name="perm_rationale">Be Simple a besoin d\'accéder à vos fichiers pour lire de la musique.</string>
+    <string name="perm_rationale">Music Player GO a besoin d\'accéder à vos fichiers pour lire de la musique.</string>
     <string name="error_no_browser">Aucun navigateur Web n\'a été trouvé.</string>
     <string name="error_bad_id">Lancez d\'abord la lecture d\'un titre.</string>
     <string name="error_no_music">Pas de musique trouvée :(</string>

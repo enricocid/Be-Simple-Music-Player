@@ -8,7 +8,7 @@
     <string name="shuffle_am">Tüm şarkıları karışık çal</string>
     <string name="shuffle_sa">Seçilen albümü karışık çal</string>
     <string name="folders">Klasörler</string>
-    <string name="perm_rationale">Be Simple\'nun müzik çalmak için dosyalarınıza erişmesi gerekiyor.</string>
+    <string name="perm_rationale">Music Player GO\'nun müzik çalmak için dosyalarınıza erişmesi gerekiyor.</string>
     <string name="error_no_browser">Web tarayıcısı bulunamadı.</string>
     <string name="error_bad_id">Önce bir şarkı çal.</string>
     <string name="error_no_music">Müzik bulunamadı :(</string>

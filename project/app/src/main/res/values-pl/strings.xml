@@ -18,7 +18,7 @@
     <string name="error_media_buttons">Coś poszło nie tak! :( Proszę uruchomić ponownie odtwarzanie w aplikacji</string>
     <string name="error_no_browser">Nie znaleziono przeglądarki!</string>
     <string name="error_bad_id">Najpierw coś odtwórz!</string>
-    <string name="perm_rationale">Be Simple wymaga dostępu do plików, aby odtwarzać muzykę!</string>
+    <string name="perm_rationale">Music Player GO wymaga dostępu do plików, aby odtwarzać muzykę!</string>
     <string name="repeat_enabled">Powtarzanie 1x włączone!</string>
     <string name="repeat_loop_enabled">Powtarzanie ∞ włączone!</string>
     <string name="repeat_disabled">Powtarzanie ∞ wyłączone!</string>

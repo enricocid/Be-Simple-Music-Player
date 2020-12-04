@@ -18,7 +18,7 @@
     <string name="error_media_buttons">هناك خطأ ما! :( يرجى إعادة التشغيل من التطبيق.</string>
     <string name="error_no_browser">لم يتم العثور على متصفح!</string>
     <string name="error_bad_id">قم بتشغيل أغنية أولاً!</string>
-    <string name="perm_rationale">يحتاج Be Simple إلى الوصول إلى ملفاتك لتشغيل الموسيقى!</string>
+    <string name="perm_rationale">يحتاج Music Player GO إلى الوصول إلى ملفاتك لتشغيل الموسيقى!</string>
     <string name="repeat_enabled">تمكين تكرار 1x!</string>
     <string name="repeat_loop_enabled">كرر ∞ ممكن!</string>
     <string name="repeat_disabled">كرر ∞ ممكن!</string>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="repeat_disabled">تکرار ∞ خاموش است.</string>
+    <string name="repeat_loop_enabled">تکرار ∞ روشن است.</string>
+    <string name="open_git_pref_summary">برای دانستنی بیشتر، تاربرگ برنامه را باز کنید :)</string>
+    <string name="open_git_pref_title">برگه گیت‌هاب</string>
+    <string name="error_no_music">موسیقی یافت نشد :(</string>
+    <string name="sorting_pref">چیدمان</string>
+    <string name="theme_pref_auto_title">خودکار</string>
+    <string name="theme_pref_dark_title">تیره</string>
+    <string name="theme_pref_light_title">روشن</string>
+    <string name="theme_pref_title">پوسته</string>
+    <string name="settings">ساماندهی</string>
+    <string name="sorting_pref_default">پیشگزیده</string>
+    <string name="folders">پوشه‌ها</string>
+    <string name="artists">هنرمندان</string>
+    <string name="no">نه</string>
+    <string name="yes">بله</string>
+</resources>

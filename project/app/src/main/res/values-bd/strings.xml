@@ -17,7 +17,7 @@
     <string name="error_media_buttons">কিছু ভুল হয়েছে! :( অ্যাপ্লিকেশন থেকে প্লেব্যাক পুনরায় আরম্ভ করুন।</string>
     <string name="error_no_browser">কোনও ব্রাউজার পাওয়া যায়নি!</string>
     <string name="error_bad_id">প্রথমে একটি গান বাজান!</string>
-    <string name="perm_rationale">Be Simple সঙ্গীত খেলতে আপনার ফাইলগুলিতে অ্যাক্সেস দরকার!</string>
+    <string name="perm_rationale">Music Player GO সঙ্গীত খেলতে আপনার ফাইলগুলিতে অ্যাক্সেস দরকার!</string>
     <string name="repeat_enabled">পুনরাবৃত্তি 1x সক্ষম!</string>
     <string name="repeat_loop_enabled">পুনরাবৃত্তি &#8734; সক্রিয়!</string>
     <string name="repeat_disabled">পুনরাবৃত্তি &#8734; অক্ষম!</string>

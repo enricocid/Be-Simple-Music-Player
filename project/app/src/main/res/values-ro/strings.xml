@@ -7,7 +7,7 @@
     <string name="shuffle_am">Redare aleatorie a tuturor titlurilor</string>
     <string name="shuffle_sa">Redare aleatorie al albumului</string>
     <string name="folders">Dosar</string>
-    <string name="perm_rationale">Pentru a vă permite să redați muzică pe dispozitivul dvs., Be Simple are nevoie să vă acceseze fișierele</string>
+    <string name="perm_rationale">Pentru a vă permite să redați muzică pe dispozitivul dvs., Music Player GO are nevoie să vă acceseze fișierele</string>
     <string name="error_no_browser">Nu a fost găsit niciun browser !</string>
     <string name="error_bad_id">Începeți să jucați un titlu mai întâi !</string>
     <string name="error_no_music">Nu s-a găsit nici o muzică :(</string>

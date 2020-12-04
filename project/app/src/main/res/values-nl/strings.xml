@@ -1,24 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="artists">Artiesten</string>
-    <string name="artist_info">%1d&#160;Albums,&#160;%2d&#160;Nummers</string>
-    <string name="folder_info">%1d&#160;Nummers</string>
+    <string name="artist_info">%1d albums, %2d nummers</string>
+    <string name="folder_info">%1d nummers</string>
     <string name="sorting_pref">Sorteren</string>
-    <string name="sorting_pref_track">Op liednummer &#8595;</string>
-    <string name="sorting_pref_track_inv">Op liednummer &#8593;</string>
-    <string name="shuffle_am">Alle nummers willekeurig afspelen</string>
+    <string name="sorting_pref_track">Op volgnummer ↓</string>
+    <string name="sorting_pref_track_inv">Op volgnummer ↑</string>
+    <string name="shuffle_am">Nummers willekeurig afspelen</string>
     <string name="shuffle_sa">Geselecteerd album willekeurig afspelen</string>
     <string name="folders">Mappen</string>
-    <string name="perm_rationale">Be Simple heeft toegang nodig tot je bestanden om muziek af te spelen!</string>
-    <string name="error_no_browser">Geen browser aangetroffen!</string>
-    <string name="error_bad_id">Start eerst een nummer!</string>
+    <string name="perm_rationale">Music Player GO heeft toegang tot je bestanden nodig om muziek af te spelen.</string>
+    <string name="error_no_browser">Geen webbrowser aangetroffen.</string>
+    <string name="error_bad_id">Start eerst een nummer.</string>
     <string name="error_no_music">Geen muziek aangetroffen :(</string>
-    <string name="error_media_buttons">Er is iets misgegaan! :( Start de muziek opnieuw in de app</string>
+    <string name="error_media_buttons">Er is iets misgegaan! :( Start de muziek opnieuw in de app.</string>
     <string name="on_close_activity">Wil je het afspelen stoppen?</string>
-    <string name="repeat_enabled">1x herhalen ingeschakeld!</string>
-    <string name="repeat_loop_enabled">&#8734; herhalen ingeschakeld!</string>
-    <string name="repeat_disabled">&#8734; herhalen uitgeschakeld!</string>
+    <string name="repeat_enabled">Eenmaal herhalen ingeschakeld.</string>
+    <string name="repeat_loop_enabled">∞ herhalen ingeschakeld.</string>
+    <string name="repeat_disabled">∞ herhalen uitgeschakeld.</string>
     <string name="settings">Instellingen</string>
     <string name="open_git_pref_title">GitHub-pagina</string>
     <string name="open_git_pref_summary">Bekijk de projectpagina voor meer informatie :)</string>
@@ -34,4 +35,12 @@
     <string name="headset_pref_title">Headset-pluggen</string>
     <string name="headset_pref_summary_on">Headset-plugbeheer uitschakelen</string>
     <string name="headset_pref_summary_off">Headset-plugbeheer inschakelen</string>
+    <string name="eq_pref_note_summary">Let op: de systeemequalizer krijgt de voorkeur, tenzij je in de systeeminstellingen de systeemequalizer uitschakelt voor deze app. :)</string>
+    <string name="song_visual_pref_fn_title">Bestandsnaam</string>
+    <string name="song_visual_pref_tl_title">Naam</string>
+    <string name="song_visual_pref_title">Nummervisualisatie</string>
+    <string name="error_eq">Oeps, er is een fout opgetreden.</string>
+    <string name="error_not_ready">Je muziekverzameling kan niet worden geladen! :( Wellicht is je sd-kaart ontkoppeld waardoor Android de databank opnieuw aan het opbouwen is. Probeer het later opnieuw.</string>
+    <string name="equalizer_bb">Basversterking</string>
+    <string name="equalizer">Equalizer</string>
 </resources>
