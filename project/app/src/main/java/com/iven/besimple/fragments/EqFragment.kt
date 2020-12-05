@@ -75,10 +75,10 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
     fun onHandleBackPressed(): Animator {
         if (!mEqAnimator.isRunning) {
             mEqAnimator =
-                mEqFragmentBinding.root.createCircularReveal(
-                    isErrorFragment = false,
-                    show = false
-                )
+                    mEqFragmentBinding.root.createCircularReveal(
+                            isErrorFragment = false,
+                            show = false
+                    )
         }
         return mEqAnimator
     }
@@ -117,8 +117,8 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
 
     private fun saveEqSettings() {
         mUIControlInterface.onSaveEqualizerSettings(
-            mSelectedPreset,
-            mEqFragmentBinding.sliderBass.value.toInt().toShort()
+                mSelectedPreset,
+                mEqFragmentBinding.sliderBass.value.toInt().toShort()
         )
     }
 
@@ -142,14 +142,14 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
         }
 
         val shapeAppearanceModel = ShapeAppearanceModel()
-            .toBuilder()
-            .setAllCorners(CornerFamily.ROUNDED, resources.getDimension(R.dimen.md_corner_radius))
-            .build()
+                .toBuilder()
+                .setAllCorners(CornerFamily.ROUNDED, resources.getDimension(R.dimen.md_corner_radius))
+                .build()
         val roundedTextBackground = MaterialShapeDrawable(shapeAppearanceModel).apply {
             strokeColor = ColorStateList.valueOf(R.color.blue.decodeColor(requireActivity()))
             strokeWidth = 0.25F
             fillColor =
-                ColorStateList.valueOf(R.color.windowBackground.decodeColor(requireActivity()))
+                    ColorStateList.valueOf(R.color.windowBackground.decodeColor(requireActivity()))
         }
 
         mEqualizer.first.run {
@@ -168,8 +168,8 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                         if (fromUser) {
                             if (mSliders[item.index] == selectedSlider) {
                                 mEqualizer.first.setBandLevel(
-                                    item.index.toShort(),
-                                    value.toInt().toShort()
+                                        item.index.toShort(),
+                                        value.toInt().toShort()
                                 )
                             }
                         }
@@ -193,8 +193,8 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                                 R.color.blue.decodeColor(requireActivity())
                             } else {
                                 ThemeHelper.resolveColorAttr(
-                                    requireActivity(),
-                                    android.R.attr.textColorPrimary
+                                        requireActivity(),
+                                        android.R.attr.textColorPrimary
                                 )
                             }
                             presetTitle.setTextColor(textColor)
@@ -220,10 +220,10 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
         if (sLaunchCircleReveal) {
             view.afterMeasured {
                 mEqAnimator =
-                    mEqFragmentBinding.root.createCircularReveal(
-                        isErrorFragment = false,
-                        show = true
-                    )
+                        mEqFragmentBinding.root.createCircularReveal(
+                                isErrorFragment = false,
+                                show = true
+                        )
             }
         }
     }
@@ -238,7 +238,7 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
             inflateMenu(R.menu.menu_eq)
             menu.run {
                 val equalizerSwitchMaterial =
-                    findItem(R.id.equalizerSwitch).actionView as SwitchMaterial
+                        findItem(R.id.equalizerSwitch).actionView as SwitchMaterial
                 equalizerSwitchMaterial.isChecked = mEqualizer.first.enabled
                 equalizerSwitchMaterial.setOnCheckedChangeListener { _, isChecked ->
                     Timer().schedule(1000) {

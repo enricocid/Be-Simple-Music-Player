@@ -559,8 +559,14 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
 
                     val bandSettings = eqSettings.bandsSettings
 
-                    bandSettings?.iterator()?.withIndex()?.forEach {
-                        mEqualizer.setBandLevel(it.index.toShort(), it.value.toInt().toShort())
+                    bandSettings?.iterator()?.withIndex()?.let { iterate ->
+                        while (iterate.hasNext()) {
+                            val item = iterate.next()
+                            mEqualizer.setBandLevel(
+                                    item.index.toShort(),
+                                    item.value.toInt().toShort()
+                            )
+                        }
                     }
 
                     mBassBoost.setStrength(eqSettings.bassBoost)
