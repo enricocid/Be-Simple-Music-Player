@@ -5,10 +5,8 @@
     <string name="artists">Artistas</string>
     <string name="artist_info">%1d Álbumes, %2d Canciones</string>
     <string name="folder_info">%1d Canciones</string>
-    <string name="shuffle_am">Cambiar orden de las canciones</string>
-    <string name="shuffle_sa">Cambiar orden del álbum seleccionado</string>
     <string name="folders">Directorios</string>
-    <string name="perm_rationale">Music Player GO necesita acceso a tus archivos para reproducir música.</string>
+    <string name="perm_rationale">Be Simple Music Player necesita acceso a tus archivos para reproducir música.</string>
     <string name="error_no_browser">No se encontró un navegador.</string>
     <string name="error_bad_id">Primero reproduzca una canción.</string>
     <string name="error_no_music">No se encontró música :(</string>
@@ -17,7 +15,6 @@
     <string name="repeat_enabled">Repetición única activada.</string>
     <string name="repeat_loop_enabled">Repetición infinita activada.</string>
     <string name="repeat_disabled">Repetición infinita desactivada.</string>
-    <string name="sorting_pref">Ordenamiento</string>
     <string name="sorting_pref_track">Por nro. de récord ↓</string>
     <string name="sorting_pref_track_inv">Por nro. de récord ↑</string>
     <string name="settings">Preferencias</string>

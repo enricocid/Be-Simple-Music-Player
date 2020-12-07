@@ -5,10 +5,8 @@
     <string name="artists">Artistas</string>
     <string name="artist_info">%1d Álbuns, %2d Músicas</string>
     <string name="folder_info">%1d Músicas</string>
-    <string name="shuffle_am">Reproduzir todas as músicas aleatoriamente</string>
-    <string name="shuffle_sa">Reproduzir aleatoriamente o álbum selecionado</string>
     <string name="folders">Pastas</string>
-    <string name="perm_rationale">Music Player GO precisa acessar seus arquivos para reproduzir música.</string>
+    <string name="perm_rationale">Be Simple Music Player precisa acessar seus arquivos para reproduzir música.</string>
     <string name="error_no_browser">Nenhum navegador encontrado.</string>
     <string name="error_bad_id">Toque uma música primeiro.</string>
     <string name="error_no_music">Nenhuma música encontrada :(</string>
@@ -32,7 +30,6 @@
     <string name="headset_pref_summary_on">Desligar gerenciamento de entrada do fone de ouvido</string>
     <string name="headset_pref_summary_off">Ligar gerenciamento de entrada do fone de ouvido</string>
     <string name="found_songs_pref_title">Músicas encontradas: %1d</string>
-    <string name="sorting_pref">Classificação</string>
     <string name="sorting_pref_track">Pelo número da faixa ↓</string>
     <string name="sorting_pref_track_inv">Pelo número da faixa ↑</string>
     <string name="error_not_ready">Não foi possível carregar sua biblioteca de músicas! :( Isso pode ter ocorrido devido à remoção do cartão SD, forçando o MediaStore do Android a reconstruir seus registros de banco de dados. Tente novamente mais tarde.</string>

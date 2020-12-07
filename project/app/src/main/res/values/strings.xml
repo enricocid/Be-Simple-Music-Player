@@ -8,12 +8,9 @@
     <string name="equalizer_bb">Bass boost</string>
     <string name="artist_info">%1d&#160;Albums,&#160;%2d&#160;Songs</string>
     <string name="folder_info">%1d&#160;Songs</string>
-    <string name="sorting_pref">Sorting</string>
     <string name="sorting_pref_default">Default</string>
     <string name="sorting_pref_track">By track no. &#8595;</string>
     <string name="sorting_pref_track_inv">By track no. &#8593;</string>
-    <string name="shuffle_am">Shuffle all songs</string>
-    <string name="shuffle_sa">Shuffle selected album</string>
     <string name="error_no_music">No music found :(</string>
     <string name="error_not_ready">Could not load the music library! :( This could be due to the SD card getting unmounted, forcing the Android\'s MediaStore to rebuild its database records. Try again later.</string>
     <string name="error_media_buttons">Something went wrong! :( Please restart playback from the app.</string>

@@ -21,14 +21,11 @@
     <string name="repeat_disabled">Однократное повторение выключено.</string>
     <string name="repeat_enabled">Однократное повторение включено.</string>
     <string name="settings">Настройки</string>
-    <string name="shuffle_am">Перемешать треки</string>
-    <string name="shuffle_sa">Перемешать выбранный альбом</string>
     <string name="theme_pref_title">Тема</string>
     <string name="theme_pref_light_title">Светлая</string>
     <string name="theme_pref_dark_title">Темная</string>
     <string name="theme_pref_auto_title">Автоматически</string>
     <string name="sorting_pref_default">По умолчанию</string>
-    <string name="sorting_pref">Сортировка</string>
     <string name="sorting_pref_track">По номеру трека ↓</string>
     <string name="sorting_pref_track_inv">По номеру трека ↑</string>
     <string name="found_songs_pref_title">Найдены треки: %1d</string>

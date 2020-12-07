@@ -9,7 +9,6 @@ interface UIControlInterface {
     fun onThemeChanged()
     fun onArtistOrFolderSelected(artistOrFolder: String, launchedBy: String)
     fun onSongSelected(song: Music?, songs: List<Music>?, launchedBy: String)
-    fun onShuffleSongs(songs: MutableList<Music>?, launchedBy: String)
     fun onCloseActivity()
     fun onDenyPermission()
     fun onHandleFocusPref()

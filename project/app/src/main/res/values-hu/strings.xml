@@ -5,10 +5,8 @@
     <string name="artists">Előadók</string>
     <string name="artist_info">%1d album, %2d dal</string>
     <string name="folder_info">%1d dal</string>
-    <string name="shuffle_am">Összes dal keverése</string>
-    <string name="shuffle_sa">Kiválasztott albumok keverése</string>
     <string name="folders">Mappák</string>
-    <string name="perm_rationale">A Music Player GO hozzáférést igényel a fáljaioz hogy tudjon zenét játszani.</string>
+    <string name="perm_rationale">A Be Simple Music Player hozzáférést igényel a fáljaioz hogy tudjon zenét játszani.</string>
     <string name="error_no_browser">Nem található böngésző!</string>
     <string name="error_bad_id">Először játsszon le egy dalt!</string>
     <string name="error_no_music">Nem található zene:(</string>
@@ -39,6 +37,5 @@
     <string name="error_eq">Hoppá, hiba történt!</string>
     <string name="sorting_pref_track_inv">Szám szerint, ↑ sorrendben</string>
     <string name="sorting_pref_track">Szám szerint, ↓ sorrendben</string>
-    <string name="sorting_pref">Rendezés</string>
     <string name="equalizer_bb">Basszuserősítés</string>
 </resources>

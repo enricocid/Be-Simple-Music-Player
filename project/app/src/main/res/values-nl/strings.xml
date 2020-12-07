@@ -5,13 +5,10 @@
     <string name="artists">Artiesten</string>
     <string name="artist_info">%1d albums, %2d nummers</string>
     <string name="folder_info">%1d nummers</string>
-    <string name="sorting_pref">Sorteren</string>
     <string name="sorting_pref_track">Op volgnummer ↓</string>
     <string name="sorting_pref_track_inv">Op volgnummer ↑</string>
-    <string name="shuffle_am">Nummers willekeurig afspelen</string>
-    <string name="shuffle_sa">Geselecteerd album willekeurig afspelen</string>
     <string name="folders">Mappen</string>
-    <string name="perm_rationale">Music Player GO heeft toegang tot je bestanden nodig om muziek af te spelen.</string>
+    <string name="perm_rationale">Be Simple Music Player heeft toegang tot je bestanden nodig om muziek af te spelen.</string>
     <string name="error_no_browser">Geen webbrowser aangetroffen.</string>
     <string name="error_bad_id">Start eerst een nummer.</string>
     <string name="error_no_music">Geen muziek aangetroffen :(</string>

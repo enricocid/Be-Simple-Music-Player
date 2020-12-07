@@ -6,12 +6,9 @@
     <string name="folders">فولڈرز</string>
     <string name="artist_info">%1d&#160;البمز I %2d&#160;گانے</string>
     <string name="folder_info">%1d&#160; گانے </string>
-    <string name="sorting_pref">چھانٹ</string>
     <string name="sorting_pref_default">پہلے سے طے شدہ</string>
     <string name="sorting_pref_track">&#8595;ٹریک نمبر </string>
     <string name="sorting_pref_track_inv">&#8593;ٹریک نمبر </string>
-    <string name="shuffle_am">تمام گانوں میں شفل کریں</string>
-    <string name="shuffle_sa">منتخب البم شفل کریں</string>
     <string name="error_no_music">کوئی موسیقی نہیں ملی :(</string>
     <string name="error_not_ready">میوزک لائبریری لوڈ کرتے وقت ایک مسئلہ تھا! :( اس کی وجہ ایسڈی کارڈ کی انماؤنٹ نہیں ہوسکتی ہے ، جس کی وجہ سے اینڈرائڈ کے میڈیا اسٹور کو اپنے ڈیٹا بیس ریکارڈوں کو دوبارہ تعمیر کرنا پڑتا ہے۔ حل: بعد میں دوبارہ کوشش کریں۔</string>
     <string name="error_media_buttons">کچھ غلط ہو گیا! :( براہ کرم ایپ سے پلے بیک دوبارہ شروع کریں۔</string>

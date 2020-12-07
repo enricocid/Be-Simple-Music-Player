@@ -5,12 +5,10 @@
     <string name="artists">Artisti</string>
     <string name="artist_info">%1d Album, %2d Canzoni</string>
     <string name="folder_info">%1d Canzoni</string>
-    <string name="shuffle_am">Mescola tutte le canzoni</string>
-    <string name="shuffle_sa">Mescola l\'abum selezionato</string>
     <string name="folders">Cartelle</string>
     <string name="equalizer">Equalizzatore</string>
     <string name="equalizer_bb">Potenziamento bassi</string>
-    <string name="perm_rationale">Music Player GO deve poter accedere ai tuoi file per eseguire la musica.</string>
+    <string name="perm_rationale">Be Simple Music Player deve poter accedere ai tuoi file per eseguire la musica.</string>
     <string name="error_no_browser">Nessun web browser trovato.</string>
     <string name="error_bad_id">Magari esegui una canzone.</string>
     <string name="error_no_music">Nessuna canzone trovata :(</string>
@@ -33,7 +31,6 @@
     <string name="song_visual_pref_tl_title">Titolo</string>
     <string name="song_visual_pref_fn_title">Nome del file</string>
     <string name="eq_pref_note_summary">Nota: verrà preferito l\'equalizzatore di sistema a meno che tu non lo disabiliti dalle impostazioni di sistema. :)</string>
-    <string name="sorting_pref">Ordine</string>
     <string name="sorting_pref_default">Predefinito</string>
     <string name="sorting_pref_track">Per n° traccia ↓</string>
     <string name="sorting_pref_track_inv">Per n° traccia ↑</string>

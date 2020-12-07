@@ -7,12 +7,9 @@
     <string name="folders">資料夾</string>
     <string name="artist_info">%1d&#160;專輯,&#160;%2d&#160;歌曲</string>
     <string name="folder_info">%1d&#160;歌曲</string>
-    <string name="sorting_pref">排序</string>
     <string name="sorting_pref_default">默認</string>
     <string name="sorting_pref_track">按軌道號 &#8595;</string>
     <string name="sorting_pref_track_inv">按軌道號 &#8593;</string>
-    <string name="shuffle_am">隨機播放所有歌曲</string>
-    <string name="shuffle_sa">隨機播放所選專輯</string>
     <string name="error_no_music">找不到音樂 :(</string>
     <string name="error_not_ready">加載音樂庫時出現問題！ :( 這可能是由於SD卡已卸載，從而迫使Android的MediaStore重建其數據庫記錄。解決方案：請稍後再試。</string>
     <string name="error_media_buttons">出問題了！ :( 請從應用程序重新開始播放。</string>

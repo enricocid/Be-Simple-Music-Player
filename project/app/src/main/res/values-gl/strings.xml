@@ -11,18 +11,15 @@
     <string name="artist_info">%1d Álbumes, %2d Pistas</string>
     <string name="folder_info">%1d Pistas</string>
     <!-- Popup/Menu titles -->
-    <string name="sorting_pref">Ordenar</string>
     <string name="sorting_pref_default">Por omisión</string>
     <string name="sorting_pref_track">Por num. ↓ de pista</string>
     <string name="sorting_pref_track_inv">Por num. ↑ de pista</string>
-    <string name="shuffle_am">Barallar todas as pistas</string>
-    <string name="shuffle_sa">Barallar álbume seleccionado</string>
     <string name="error_no_music">Non se atopou música :(</string>
     <string name="error_not_ready">Non se cargou a biblioteca de música! :( Podería deberse a que a tarxeta SD non está montada, forzando ó Almacenaxe de Medios de Android a reconstruír a base de datos. Inténtao máis tarde.</string>
     <string name="error_media_buttons">Algo fallou! :( Por favor reinicia a reprodución desde a app.</string>
     <string name="error_no_browser">Non se atopou navegador.</string>
     <string name="error_bad_id">Reproduce primeiro unha pista.</string>
-    <string name="perm_rationale">Music Player GO precisa acceder ós ficheiros para poder reproducilos.</string>
+    <string name="perm_rationale">Be Simple Music Player precisa acceder ós ficheiros para poder reproducilos.</string>
     <string name="repeat_enabled">Activouse repetir 1 vez.</string>
     <string name="repeat_loop_enabled">Repetir ∞ activado.</string>
     <string name="repeat_disabled">Repetir ∞ desactivado.</string>

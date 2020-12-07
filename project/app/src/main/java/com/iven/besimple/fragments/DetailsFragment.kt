@@ -68,9 +68,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     private var mSongsSorting = BeSimpleConstants.TRACK_SORTING
 
     private val sLaunchedByArtistView get() = mLaunchedBy == BeSimpleConstants.ARTIST_VIEW
-    private val sLaunchedByFolderView get() = mLaunchedBy == BeSimpleConstants.FOLDER_VIEW
-
-    private var sLaunchCircleReveal = true
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -107,10 +104,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                     )
         }
         return mArtistDetailsAnimator
-    }
-
-    fun setDisableCircleReveal() {
-        sLaunchCircleReveal = false
     }
 
     // https://stackoverflow.com/a/38241603
@@ -163,14 +156,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     private fun setupToolbar() {
         mDetailsFragmentBinding.detailsToolbar.run {
 
-            overflowIcon = AppCompatResources.getDrawable(
-                    requireActivity(),
-                    if (sLaunchedByArtistView) {
-                        R.drawable.ic_shuffle
-                    } else {
-                        R.drawable.ic_more_vert
-                    }
-            )
+            if (!sLaunchedByArtistView) {
+                overflowIcon = AppCompatResources.getDrawable(context, R.drawable.ic_sort)
+            }
 
             title = mSelectedArtistOrFolder
 
@@ -188,7 +176,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                 requireActivity().onBackPressed()
             }
 
-            setupMenu()
+            if (!sLaunchedByArtistView) {
+                setupMenu()
+            }
         }
     }
 
@@ -253,7 +243,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                 setOnQueryTextListener(this@DetailsFragment)
                 setOnQueryTextFocusChangeListener { _, hasFocus ->
                     mDetailsFragmentBinding.detailsToolbar.menu.setGroupVisible(
-                            R.id.more_options_folder,
+                            R.id.sorting,
                             !hasFocus
                     )
                 }
@@ -300,14 +290,15 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                     onClick {
 
                         val selectedPlaylist =
-                                if (sLaunchedByFolderView) {
-                                    mSongsList
-                                } else {
-                                    MusicOrgHelper.getAlbumSongs(
+                                if (sLaunchedByArtistView) {
+                                    val playlist = MusicOrgHelper.getAlbumSongs(
                                             item.artist,
                                             item.album,
                                             mMusicViewModel.deviceAlbumsByArtist
                                     )
+                                    playlist
+                                } else {
+                                    mSongsList
                                 }
 
                         mUIControlInterface.onSongSelected(
@@ -320,14 +311,12 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
             }
         }
 
-        if (sLaunchCircleReveal) {
-            view.afterMeasured {
-                mArtistDetailsAnimator =
-                        mDetailsFragmentBinding.root.createCircularReveal(
-                                isErrorFragment = false,
-                                show = true
-                        )
-            }
+        view.afterMeasured {
+            mArtistDetailsAnimator =
+                    mDetailsFragmentBinding.root.createCircularReveal(
+                            isErrorFragment = false,
+                            show = true
+                    )
         }
     }
 
@@ -353,8 +342,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
                         }
                 )
             }
-            mDetailsFragmentBinding.detailsToolbar.menu.findItem(R.id.action_shuffle_sa).isEnabled =
-                    mSelectedAlbum?.music?.size!! >= 2
         }
 
         musicList?.let { music ->
@@ -376,40 +363,12 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
 
         mDetailsFragmentBinding.detailsToolbar.run {
 
-            val menuToInflate = when {
-                sLaunchedByArtistView -> R.menu.menu_artist_details
-                sLaunchedByFolderView -> R.menu.menu_album_details
-                else -> R.menu.menu_album_details
-            }
+            inflateMenu(R.menu.menu_album_details)
 
-            inflateMenu(menuToInflate)
-
-            menu.run {
-                findItem(R.id.action_shuffle_am).isEnabled =
-                        if (sLaunchedByArtistView) {
-                            mSelectedArtistAlbums?.size!! >= 2
-                        } else {
-                            mSongsList?.size!! >= 2
-                        }
-
-                findItem(R.id.action_shuffle_sa).isEnabled = sLaunchedByArtistView
-                if (!sLaunchedByArtistView) {
-                    findItem(R.id.sorting).isEnabled =
-                            mSongsList?.size!! >= 2
-                }
-            }
+            menu.setGroupEnabled(R.id.sorting, mSongsList?.size!! >= 2)
 
             setOnMenuItemClickListener {
-
                 when (it.itemId) {
-                    R.id.action_shuffle_am -> mUIControlInterface.onShuffleSongs(
-                            mSongsList?.toMutableList(),
-                            mLaunchedBy
-                    )
-                    R.id.action_shuffle_sa -> mUIControlInterface.onShuffleSongs(
-                            mSelectedAlbum?.music,
-                            mLaunchedBy
-                    )
                     R.id.default_sorting -> applySortingToMusic(BeSimpleConstants.DEFAULT_SORTING)
                     R.id.descending_sorting -> applySortingToMusic(BeSimpleConstants.DESCENDING_SORTING)
                     R.id.ascending_sorting -> applySortingToMusic(BeSimpleConstants.ASCENDING_SORTING)
@@ -422,10 +381,10 @@ class DetailsFragment : Fragment(R.layout.fragment_details), SearchView.OnQueryT
     }
 
     private fun applySortingToMusic(order: Int) {
-        val selectedList = if (sLaunchedByFolderView) {
-            mMusicViewModel.deviceMusicByFolder?.get(mSelectedArtistOrFolder)
-        } else {
+        val selectedList = if (sLaunchedByArtistView) {
             mMusicViewModel.deviceMusicByAlbum?.get(mSelectedArtistOrFolder)
+        } else {
+            mMusicViewModel.deviceMusicByFolder?.get(mSelectedArtistOrFolder)
         }
         mSongsList = ListsHelper.getSortedMusicList(
                 order,

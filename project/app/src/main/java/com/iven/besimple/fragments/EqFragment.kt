@@ -68,10 +68,6 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
         }
     }
 
-    fun setDisableCircleReveal() {
-        sLaunchCircleReveal = false
-    }
-
     fun onHandleBackPressed(): Animator {
         if (!mEqAnimator.isRunning) {
             mEqAnimator =

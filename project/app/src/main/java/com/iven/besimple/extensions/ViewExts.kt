@@ -2,6 +2,7 @@ package com.iven.besimple.extensions
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.Html
 import android.text.SpannableString
@@ -24,6 +25,7 @@ import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.iven.besimple.R
 import com.iven.besimple.helpers.ThemeHelper
 import com.iven.besimple.helpers.VersioningHelper
+import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import kotlin.math.max
 
 // viewTreeObserver extension to measure layout params
@@ -38,6 +40,17 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
             }
         }
     })
+}
+
+@SuppressLint("DefaultLocale")
+fun String.getFastScrollerItem(context: Context): FastScrollItemIndicator {
+    var charAtZero = context.getString(R.string.fastscroller_dummy_item)
+    if (isNotEmpty()) {
+        charAtZero = get(0).toString()
+    }
+    return FastScrollItemIndicator.Text(
+            charAtZero.toUpperCase() // Grab the first letter and capitalize it
+    )
 }
 
 @ColorInt

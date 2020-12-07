@@ -5,10 +5,8 @@
     <string name="artists">Sanatçılar</string>
     <string name="artist_info">%1d Albüm, %2d Şarkı</string>
     <string name="folder_info">%1d Şarkı</string>
-    <string name="shuffle_am">Tüm şarkıları karışık çal</string>
-    <string name="shuffle_sa">Seçilen albümü karışık çal</string>
     <string name="folders">Klasörler</string>
-    <string name="perm_rationale">Music Player GO\'nun müzik çalmak için dosyalarınıza erişmesi gerekiyor.</string>
+    <string name="perm_rationale">Be Simple Music Player\'nun müzik çalmak için dosyalarınıza erişmesi gerekiyor.</string>
     <string name="error_no_browser">Web tarayıcısı bulunamadı.</string>
     <string name="error_bad_id">Önce bir şarkı çal.</string>
     <string name="error_no_music">Müzik bulunamadı :(</string>
@@ -32,7 +30,6 @@
     <string name="repeat_loop_enabled">∞ tekrar açık.</string>
     <string name="repeat_enabled">Tek tekrar açık.</string>
     <string name="repeat_disabled">∞ tekrar kapalı.</string>
-    <string name="sorting_pref">Sıralama</string>
     <string name="sorting_pref_track">Şarkı numarasına göre ↓</string>
     <string name="sorting_pref_track_inv">Şarkı numarasına göre ↑</string>
     <string name="error_not_ready">Müzik kütüphanesi yüklenemedi! :( Bu SD kartın bağlantısının kesilmesinden ve Android\'in MediaStore veri tabanı kayıtlarını yeniden oluşturmaya zorlamasından kaynaklanabilir. Daha sonra tekrar deneyin.</string>

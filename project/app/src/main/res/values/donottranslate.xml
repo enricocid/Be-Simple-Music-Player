@@ -11,6 +11,7 @@
     <string name="year_and_duration">%1s&#160;-&#160;%2s</string>
 
     <!-- Formatting symbols -->
+    <string name="fastscroller_dummy_item">&#8230;</string>
     <string name="slash">/</string>
     <string name="unknown_year">N&#x2F;A</string>
     <string name="freq_k">%1dk</string>
