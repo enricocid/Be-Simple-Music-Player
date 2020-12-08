@@ -602,7 +602,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     }
 
     private fun openPlayingArtistAlbum() {
-        if (checkIsPlayer() && isMediaPlayerHolder && mMediaPlayerHolder.isCurrentSong) {
+        if (checkIsPlayer() && mMediaPlayerHolder.isCurrentSong) {
             if (!sDetailsFragmentExpanded || sDetailsFragmentExpanded and !sEqFragmentExpanded) {
                 val isPlayingFromFolder = mMediaPlayerHolder.launchedBy
                 val selectedSong = mMediaPlayerHolder.currentSong

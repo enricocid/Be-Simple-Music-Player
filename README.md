@@ -65,7 +65,7 @@ This repo contains the source code of the **Be Simple Music Player** Android app
 - Equalizer
 - Light, dark, automatic themes
 - Simple audio focus and headsets management
-- Search, sorting, shuffle ...
+- Search, sorting, ...
 - Modern code base and ... Kotlin!
 
 
