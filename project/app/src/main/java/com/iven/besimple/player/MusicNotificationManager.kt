@@ -125,7 +125,7 @@ class MusicNotificationManager(private val playerService: PlayerService) {
 
     private fun getNotificationSmallIcon(mediaPlayerHolder: MediaPlayerHolder) =
             when (mediaPlayerHolder.launchedBy) {
-                BeSimpleConstants.FOLDER_VIEW -> R.drawable.ic_folder
+                BeSimpleConstants.FOLDER_VIEW -> R.drawable.ic_folder_music
                 else -> R.drawable.ic_music_note
             }
 
