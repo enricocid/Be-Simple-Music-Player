@@ -6,8 +6,7 @@
 - Equalizer
 - Light, dark, automatic themes
 - Simple audio focus and headsets management
-- Search, sorting, shuffle ...
-- Modern code base and ... Kotlin!
+- Search, sorting ...
 
 <b>Want more?</b>
 

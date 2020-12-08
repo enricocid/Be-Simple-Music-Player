@@ -1,0 +1,8 @@
+- Android 11: fix edge to edge
+- Fix audio focus (thanks Drhaal)
+- Remove shuffle (use mpgo for a fully featured music player)
+- Review artists icon
+- Review system bars color
+- Many code improvements and fixes
+- Update/add translations
+- Upgrade dependencies

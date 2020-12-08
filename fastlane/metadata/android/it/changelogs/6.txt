@@ -1,0 +1,8 @@
+- Android 11: correzioni edge to edge
+- Corretto audio focus (grazie Drhaal)
+- Rimossa opzione shuffle (usa mpgo se vuoi un lettore musicale più completo)
+- Rivista l'icona per gli artisti
+- Revisione colore barre di sistema
+- Molte migliorie e correzioni del codice
+- Aggiornamento/aggiunta traduzioni
+- Aggiornamento dipendenze

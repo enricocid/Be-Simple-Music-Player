@@ -1,14 +1,14 @@
 <h1 align="center">Be Simple Music Player</h1>
 
 <p align="center">
-<img height="500" src="art.gif">
+<img height="500" src="art1.gif">
 </p>
 
 <p align="center">
   <!-- Latest Release -->
     <a href="https://github.com/enricocid/Music-Player-GO/releases">
       <img alt="GitHub release"
-      src="https://img.shields.io/static/v1?label=Tag&message=v1.0.4&color=43455C">
+      src="https://img.shields.io/static/v1?label=Tag&message=v1.0.5&color=43455C">
     </a>
    <!-- Minimum SDK -->
     <a>

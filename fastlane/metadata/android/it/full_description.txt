@@ -6,8 +6,7 @@
 - Equalizzatore
 - Temi chiaro, scuro, automatico
 - Semplice gestione del focus audio e delle cuffie
-- Ricerca, ordinamento, shuffle ...
-- Code base moderna e ... Kotlin!
+- Ricerca, ordinamento ...
 
 <b>Vuoi di più?</b>
 
