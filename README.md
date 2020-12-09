@@ -18,6 +18,12 @@
 </p>
 
   <h3 align="center">
+  <a href="https://hosted.weblate.org/engage/music-player-go/">
+    <img src="https://hosted.weblate.org/widgets/music-player-go/-/287x66-white.png" />
+  </a>
+  </h3>
+
+  <h3 align="center">
   <a href="PRIVACY.md">Privacy policy</a> |
   <a href="CONTRIBUTORS.md">Contributors</a> |
   <a href="FORMATS.md">Formats</a>
@@ -79,6 +85,9 @@ https://github.com/enricocid/Music-Player-GO
 Join us at Weblate:
 https://hosted.weblate.org/engage/music-player-go/
 
+<a href="https://hosted.weblate.org/engage/music-player-go/">
+  <img src="https://hosted.weblate.org/widgets/music-player-go/-/88x31-white.png" />
+</a>
 
 # License
 
