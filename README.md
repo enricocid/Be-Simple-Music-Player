@@ -72,24 +72,22 @@ This repo contains the source code of the **Be Simple Music Player** Android app
 - Light, dark, automatic themes
 - Simple audio focus and headsets management
 - Search, sorting, ...
-- Modern code base and ... Kotlin!
 
 
-Want something more?
-Check Music Player GO:
-https://github.com/enricocid/Music-Player-GO
+Want something more? Check [Music Player GO](https://github.com/enricocid/Music-Player-GO)
 
 
 # Want to contribute to translations?
 
-Join us at Weblate:
-https://hosted.weblate.org/engage/music-player-go/
+Join us at [Weblate](https://hosted.weblate.org/engage/music-player-go/)
 
 <a href="https://hosted.weblate.org/engage/music-player-go/">
   <img src="https://hosted.weblate.org/widgets/music-player-go/-/88x31-white.png" />
 </a>
 
+
 # License
+
 
 ## Authors / Copyright
 
