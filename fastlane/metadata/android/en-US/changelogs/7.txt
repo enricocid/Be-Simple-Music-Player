@@ -1,0 +1,2 @@
+- Review notification folder icon
+- Upgrade dependencies
