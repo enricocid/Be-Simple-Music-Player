@@ -14,7 +14,7 @@ class BeSimplePreferences(context: Context) {
     private val prefsLatestPlayedSong = context.getString(R.string.latest_played_song_pref)
 
     private val prefsTheme = context.getString(R.string.theme_pref)
-    private val prefsThemeDef = context.getString(R.string.theme_pref_light)
+    private val prefsThemeDef = context.getString(R.string.theme_pref_auto)
 
     private val prefsSongsVisual = context.getString(R.string.song_visual_pref)
 

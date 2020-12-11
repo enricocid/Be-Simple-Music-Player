@@ -24,7 +24,7 @@
         app:title="@string/open_git_pref_title" />
 
     <ListPreference
-        android:defaultValue="@string/theme_pref_light"
+        android:defaultValue="@string/theme_pref_auto"
         app:dialogTitle="@string/theme_pref_title"
         app:entries="@array/themeListArray"
         app:entryValues="@array/themeEntryArray"
