@@ -114,7 +114,7 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
                     val audioArtist = cursor.getString(artistIndex)
                     val audioYear = cursor.getInt(yearIndex)
                     val audioTrack = cursor.getInt(trackIndex)
-                    var audioTitle = cursor.getString(titleIndex)
+                    val audioTitle = cursor.getString(titleIndex)
                     val audioDisplayName = cursor.getString(displayNameIndex)
                     val audioDuration = cursor.getLong(durationIndex)
                     val audioAlbum = cursor.getString(albumIndex)
@@ -134,10 +134,6 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
                                 )
                             }
                         }
-
-                    if (audioTitle.isEmpty()) {
-                        audioTitle = audioFolderName
-                    }
 
                     // Add the current music to the list
                     deviceMusicList.add(
@@ -166,11 +162,16 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     private fun getMusic(application: Application): MutableList<Music> {
+        synchronized(startQuery(application)) {
+            buildLibrary(application.resources)
+        }
+        return deviceMusicList
+    }
+
+    private fun startQuery(application: Application) {
         queryForMusic(application)?.let { fm ->
             deviceMusicList = fm
         }
-        buildLibrary(application.resources)
-        return deviceMusicList
     }
 
     private fun buildLibrary(resources: Resources) {

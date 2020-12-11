@@ -100,7 +100,7 @@ Join us at [Weblate](https://hosted.weblate.org/engage/music-player-go/)
 
 | Name                                                        | Author                  |
 | ----------------------------------------------------------- | ------------------------- |
-| [GSON](https://github.com/google/gson)                  | Google                       |
+| [Moshi](https://github.com/square/moshi)                  | Square                       |
 | [Indicator Fast Scroll](https://github.com/reddit/IndicatorFastScroll)                  | Reddit                       |
 | [recyclical](https://github.com/afollestad/recyclical)                  | [Aidan Afollestad](https://github.com/afollestad)                       |
 | [Edge-to-Edge](https://github.com/beworker/edge-to-edge)                  | [Sergej Shafarenka](https://github.com/beworker)                       |

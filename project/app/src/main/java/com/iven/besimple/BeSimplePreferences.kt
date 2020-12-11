@@ -2,11 +2,9 @@ package com.iven.besimple
 
 import android.content.Context
 import androidx.preference.PreferenceManager
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
 import com.iven.besimple.models.Music
 import com.iven.besimple.models.SavedEqualizerSettings
-import java.lang.reflect.Type
+import com.squareup.moshi.Moshi
 
 class BeSimplePreferences(context: Context) {
 
@@ -25,27 +23,21 @@ class BeSimplePreferences(context: Context) {
     private val prefsHeadsetPlug = context.getString(R.string.headset_pref)
 
     private val mPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-    private val mGson = GsonBuilder().create()
-
-    // saved equalizer settings is a SavedEqualizerSettings
-    private val typeSavedEqualizerSettings = object : TypeToken<SavedEqualizerSettings>() {}.type
-
-    // last played song is a SavedMusic
-    private val typeLastPlayedSong = object : TypeToken<Music>() {}.type
+    private val mMoshi = Moshi.Builder().build()
 
     var latestPlayedSong: Music?
-        get() = getObject(
+        get() = getObjectForClass(
             prefsLatestPlayedSong,
-            typeLastPlayedSong
+            Music::class.java
         )
-        set(value) = putObject(prefsLatestPlayedSong, value)
+        set(value) = putObjectForClass(prefsLatestPlayedSong, value, Music::class.java)
 
     var savedEqualizerSettings: SavedEqualizerSettings?
-        get() = getObject(
+        get() = getObjectForClass(
             prefsSavedEqualizerSettings,
-            typeSavedEqualizerSettings
+            SavedEqualizerSettings::class.java
         )
-        set(value) = putObject(prefsSavedEqualizerSettings, value)
+        set(value) = putObjectForClass(prefsSavedEqualizerSettings, value, SavedEqualizerSettings::class.java)
 
     var theme
         get() = mPrefs.getString(prefsTheme, prefsThemeDef)
@@ -71,27 +63,17 @@ class BeSimplePreferences(context: Context) {
         get() = mPrefs.getBoolean(prefsHeadsetPlug, true)
         set(value) = mPrefs.edit().putBoolean(prefsHeadsetPlug, value).apply()
 
-    /**
-     * Saves object into the Preferences.
-     * Only the fields are stored. Methods, Inner classes, Nested classes and inner interfaces are not stored.
-     **/
-    private fun <T> putObject(key: String, y: T) {
-        //Convert object to JSON String.
-        val inString = mGson.toJson(y)
-        //Save that String in SharedPreferences
-        mPrefs.edit().putString(key, inString).apply()
+    // Saves object into the Preferences using Moshi
+    private fun <T : Any> getObjectForClass(key: String, clazz: Class<T>): T? {
+        mPrefs.getString(key, null)?.let { json ->
+            return mMoshi.adapter(clazz).fromJson(json)
+        }
+        return null
     }
 
-    /**
-     * Get object from the Preferences.
-     **/
-    private fun <T> getObject(key: String, t: Type): T? {
-        //We read JSON String which was saved.
-        val value = mPrefs.getString(key, null)
-
-        //JSON String was found which means object can be read.
-        //We convert this JSON String to model object. Parameter "c" (of type Class<T>" is used to cast.
-        return mGson.fromJson(value, t)
+    private fun <T : Any> putObjectForClass(key: String, value: T?, clazz: Class<T>) {
+        val json = mMoshi.adapter(clazz).toJson(value)
+        mPrefs.edit().putString(key, json).apply()
     }
 }
 
