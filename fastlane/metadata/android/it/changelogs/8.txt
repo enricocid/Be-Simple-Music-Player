@@ -1,0 +1,3 @@
+- Bug fixes
+- Il tema automatico è di default ora (grazie Drhaal per il suggerimento)
+- Aggiornate librerie/dipendenze

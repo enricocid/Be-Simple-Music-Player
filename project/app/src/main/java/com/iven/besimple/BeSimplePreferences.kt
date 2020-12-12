@@ -63,7 +63,7 @@ class BeSimplePreferences(context: Context) {
         get() = mPrefs.getBoolean(prefsHeadsetPlug, true)
         set(value) = mPrefs.edit().putBoolean(prefsHeadsetPlug, value).apply()
 
-    // Saves object into the Preferences using Moshi
+    // Retrieve object from the Preferences using Moshi
     private fun <T : Any> getObjectForClass(key: String, clazz: Class<T>): T? {
         mPrefs.getString(key, null)?.let { json ->
             return mMoshi.adapter(clazz).fromJson(json)
@@ -71,6 +71,7 @@ class BeSimplePreferences(context: Context) {
         return null
     }
 
+    // Saves object into the Preferences using Moshi
     private fun <T : Any> putObjectForClass(key: String, value: T?, clazz: Class<T>) {
         val json = mMoshi.adapter(clazz).toJson(value)
         mPrefs.edit().putString(key, json).apply()
