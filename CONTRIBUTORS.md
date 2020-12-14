@@ -13,7 +13,9 @@ This work is licensed under a [CC BY 3.0](https://creativecommons.org/licenses/b
 
 - [**Steven Schoen**](https://github.com/DSteve595) for the search function [fixes](https://github.com/enricocid/Music-Player-GO/commit/1c27ff3421dbf7820608237dc60a974955efb022) and quick [support](https://github.com/reddit/IndicatorFastScroll/issues/30)
 
-- [**bullhead**](https://github.com/bullheadandplato) for its equalizer implementation: I learned so much about how an equalizer works
+- [**TacoTheDank**](https://github.com/TacoTheDank) for upgrades to gradle, java 1.8, translations and improvements [247](https://github.com/enricocid/Music-Player-GO/issues/247), [248](https://github.com/enricocid/Music-Player-GO/pull/248)
+
+- [**bullhead**](https://github.com/bullheadandplato) for dialog titles blinking cursor [fixes (https://github.com/enricocid/Music-Player-GO/pull/121) and its equalizer implementation: I learned so much about how an equalizer works
 
 - [**svgrepo.com**](https://www.svgrepo.com/) for the [compact disc](https://www.svgrepo.com/svg/181020/compact-disc-music) icon, opportunely modified (background color).
 This work is licensed under a [CC 0](https://creativecommons.org/share-your-work/public-domain/cc0/) license
@@ -27,8 +29,6 @@ This work is licensed under a [CC 0](https://creativecommons.org/share-your-work
 
 - [**Johnett Mathew**](https://github.com/Johnett) for these [fixes](https://github.com/enricocid/Music-Player-GO/pull/149)
 
-- [**bullhead**](https://github.com/bullheadandplato) for dialog titles blinking cursor [fixes](https://github.com/enricocid/Music-Player-GO/pull/121)
-
 - [**seventhsonmizo**](https://github.com/seventhsonmizo) for Android Q [issue](https://github.com/enricocid/Music-Player-GO/issues/110) report and debugging
 
 - [**Jnss98b**](https://github.com/Jnss98b) for helping me to implement [edge-to-edge](https://github.com/enricocid/Music-Player-GO/issues/86) and for having reported/debugged this [issue](https://github.com/enricocid/VectorifyDaHome/issues/17)
@@ -36,8 +36,6 @@ This work is licensed under a [CC 0](https://creativecommons.org/share-your-work
 - [**Pirhszm Yfiz**](https://github.com/pirhszm) for reporting this [issue](https://github.com/enricocid/Music-Player-GO/issues/110#issuecomment-573424280)
 
 - [**IzzySoft**](https://github.com/IzzySoft) and [**Poussinou**](https://github.com/Poussinou) for setting up the **F-Droid** repository
-
-- [**TacoTheDank**](https://github.com/TacoTheDank) for upgrades to gradle, java 1.8 and translations
 
 - [**Dankan1890**](https://github.com/dankan1890) for some fixes to bluetooth devices
 
