@@ -4,7 +4,6 @@ import android.animation.Animator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
-import android.text.Html
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -26,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.iven.besimple.R
 import com.iven.besimple.helpers.ThemeHelper
-import com.iven.besimple.helpers.VersioningHelper
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import kotlin.math.max
 
