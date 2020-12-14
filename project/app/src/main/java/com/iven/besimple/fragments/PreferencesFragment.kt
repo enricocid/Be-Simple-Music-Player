@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -21,7 +21,7 @@ import com.iven.besimple.ui.UIControlInterface
 
 
 class PreferencesFragment : PreferenceFragmentCompat(),
-        SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
+    SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
     private lateinit var mUIControlInterface: UIControlInterface
 
@@ -57,13 +57,14 @@ class PreferencesFragment : PreferenceFragmentCompat(),
         super.onViewCreated(view, savedInstanceState)
 
         findPreference<Preference>(getString(R.string.open_git_pref))?.onPreferenceClickListener =
-                this
+            this
 
         ViewModelProvider(requireActivity()).get(MusicViewModel::class.java).apply {
             deviceMusic.observe(viewLifecycleOwner, { returnedMusic ->
                 if (!returnedMusic.isNullOrEmpty()) {
                     findPreference<Preference>(getString(R.string.found_songs_pref))?.let { preference ->
-                        preference.title = getString(R.string.found_songs_pref_title, musicDatabaseSize)
+                        preference.title =
+                            getString(R.string.found_songs_pref_title, musicDatabaseSize)
                     }
                 }
             })
@@ -71,8 +72,8 @@ class PreferencesFragment : PreferenceFragmentCompat(),
 
         mThemePreference = findPreference<Preference>(getString(R.string.theme_pref))?.apply {
             icon = AppCompatResources.getDrawable(
-                    requireActivity(),
-                    ThemeHelper.resolveThemeIcon(requireActivity())
+                requireActivity(),
+                ThemeHelper.resolveThemeIcon(requireActivity())
             )
         }
     }
@@ -92,10 +93,10 @@ class PreferencesFragment : PreferenceFragmentCompat(),
         when (key) {
             getString(R.string.theme_pref) -> {
                 mThemePreference?.icon =
-                        AppCompatResources.getDrawable(
-                                requireActivity(),
-                                ThemeHelper.resolveThemeIcon(requireActivity())
-                        )
+                    AppCompatResources.getDrawable(
+                        requireActivity(),
+                        ThemeHelper.resolveThemeIcon(requireActivity())
+                    )
                 mUIControlInterface.onThemeChanged()
             }
             getString(R.string.focus_pref) -> mUIControlInterface.onHandleFocusPref()
@@ -105,11 +106,11 @@ class PreferencesFragment : PreferenceFragmentCompat(),
     @SuppressLint("QueryPermissionsNeeded")
     private fun openCustomTab(link: String) {
         val customTabsIntent = CustomTabsIntent.Builder()
-                .setShareState(CustomTabsIntent.SHARE_STATE_ON)
-                .setShowTitle(true)
-                .build()
+            .setShareState(CustomTabsIntent.SHARE_STATE_ON)
+            .setShowTitle(true)
+            .build()
 
-        val parsedUri = Uri.parse(link)
+        val parsedUri = link.toUri()
         val manager = requireActivity().packageManager
         val infos = manager.queryIntentActivities(customTabsIntent.intent, 0)
         if (infos.size > 0) {
@@ -125,9 +126,9 @@ class PreferencesFragment : PreferenceFragmentCompat(),
                 requireActivity().startActivity(browserIntent)
             } else {
                 Toast.makeText(
-                        context,
-                        requireActivity().getString(R.string.error_no_browser),
-                        Toast.LENGTH_SHORT
+                    context,
+                    requireActivity().getString(R.string.error_no_browser),
+                    Toast.LENGTH_SHORT
                 ).show()
             }
         }

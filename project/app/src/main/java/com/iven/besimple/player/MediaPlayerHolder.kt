@@ -4,7 +4,6 @@ import android.app.Activity
 import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Context.AUDIO_SERVICE
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Bitmap
@@ -22,6 +21,7 @@ import android.os.PowerManager
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.PlaybackStateCompat.ACTION_SEEK_TO
 import android.support.v4.media.session.PlaybackStateCompat.Builder
+import androidx.core.content.getSystemService
 import com.iven.besimple.BeSimpleConstants
 import com.iven.besimple.R
 import com.iven.besimple.beSimplePreferences
@@ -77,7 +77,7 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
     private lateinit var mBassBoost: BassBoost
 
     // Audio focus
-    private var mAudioManager = playerService.getSystemService(AUDIO_SERVICE) as AudioManager
+    private var mAudioManager = playerService.getSystemService<AudioManager>()!!
     private lateinit var mAudioFocusRequestOreo: AudioFocusRequest
     private val mHandler = Handler(Looper.getMainLooper())
 
@@ -562,14 +562,12 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
         mediaPlayer.run {
             val savedEqualizerSettings = beSimplePreferences.savedEqualizerSettings
 
-            savedEqualizerSettings?.let { eqSettings ->
+            savedEqualizerSettings?.let { (enabled, preset, bandSettings, bassBoost) ->
 
-                setEqualizerEnabled(eqSettings.enabled)
+                setEqualizerEnabled(enabled)
 
                 try {
-                    mEqualizer.usePreset(eqSettings.preset.toShort())
-
-                    val bandSettings = eqSettings.bandsSettings
+                    mEqualizer.usePreset(preset.toShort())
 
                     bandSettings?.iterator()?.withIndex()?.let { iterate ->
                         while (iterate.hasNext()) {
@@ -581,7 +579,7 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
                         }
                     }
 
-                    mBassBoost.setStrength(eqSettings.bassBoost)
+                    mBassBoost.setStrength(bassBoost)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

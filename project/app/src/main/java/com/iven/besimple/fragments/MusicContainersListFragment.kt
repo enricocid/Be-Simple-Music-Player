@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +33,7 @@ import com.reddit.indicatorfastscroll.FastScrollerView
  * create an instance of this fragment.
  */
 class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_list),
-        SearchView.OnQueryTextListener {
+    SearchView.OnQueryTextListener {
 
     private lateinit var mMusicContainerListBinding: FragmentMusicContainerListBinding
 
@@ -74,19 +75,20 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
 
         mMusicContainerListBinding = FragmentMusicContainerListBinding.bind(view)
 
-        mMusicViewModel = ViewModelProvider(requireActivity()).get(MusicViewModel::class.java).apply {
-            deviceMusic.observe(viewLifecycleOwner, { returnedMusic ->
-                if (!returnedMusic.isNullOrEmpty()) {
-                    mSorting = getSortingMethodFromPrefs()
+        mMusicViewModel =
+            ViewModelProvider(requireActivity()).get(MusicViewModel::class.java).apply {
+                deviceMusic.observe(viewLifecycleOwner, { returnedMusic ->
+                    if (!returnedMusic.isNullOrEmpty()) {
+                        mSorting = getSortingMethodFromPrefs()
 
-                    mList = getSortedItemKeys()
+                        mList = getSortedItemKeys()
 
-                    setListDataSource(mList)
+                        setListDataSource(mList)
 
-                    finishSetup()
-                }
-            })
-        }
+                        finishSetup()
+                    }
+                })
+            }
     }
 
     private fun finishSetup() {
@@ -109,8 +111,8 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                     onClick {
                         if (::mUIControlInterface.isInitialized) {
                             mUIControlInterface.onArtistOrFolderSelected(
-                                    item,
-                                    mLaunchedBy
+                                item,
+                                mLaunchedBy
                             )
                         }
                     }
@@ -125,7 +127,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
             inflateMenu(R.menu.menu_search)
 
             overflowIcon =
-                    AppCompatResources.getDrawable(context, R.drawable.ic_sort)
+                AppCompatResources.getDrawable(context, R.drawable.ic_sort)
 
             title = getFragmentTitle()
 
@@ -147,7 +149,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                         if (sIsFastScrollerVisible) {
                             mMusicContainerListBinding.fastscroller.handleViewVisibility(!hasFocus)
                             mMusicContainerListBinding.fastscrollerThumb.handleViewVisibility(
-                                    !hasFocus
+                                !hasFocus
                             )
                             setupArtistsRecyclerViewPadding(hasFocus)
                         }
@@ -165,8 +167,8 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                 getArtistSubtitle(item)
             BeSimpleConstants.FOLDER_VIEW ->
                 getString(
-                        R.string.folder_info,
-                        mMusicViewModel.deviceMusicByFolder?.getValue(item)?.size
+                    R.string.folder_info,
+                    mMusicViewModel.deviceMusicByFolder?.getValue(item)?.size
                 )
             else ->
                 mMusicViewModel.deviceMusicByAlbum?.get(item)?.first()?.artist
@@ -177,19 +179,19 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
         return when (mLaunchedBy) {
             BeSimpleConstants.ARTIST_VIEW ->
                 ListsHelper.getSortedList(
-                        mSorting,
-                        mMusicViewModel.deviceAlbumsByArtist?.keys?.toMutableList()
+                    mSorting,
+                    mMusicViewModel.deviceAlbumsByArtist?.keys?.toMutableList()
                 )
             BeSimpleConstants.FOLDER_VIEW ->
                 ListsHelper.getSortedList(
-                        mSorting,
-                        mMusicViewModel.deviceMusicByFolder?.keys?.toMutableList()
+                    mSorting,
+                    mMusicViewModel.deviceMusicByFolder?.keys?.toMutableList()
                 )
 
             else ->
                 ListsHelper.getSortedListWithNull(
-                        mSorting,
-                        mMusicViewModel.deviceMusicByAlbum?.keys?.toMutableList()
+                    mSorting,
+                    mMusicViewModel.deviceMusicByAlbum?.keys?.toMutableList()
                 )
         }
     }
@@ -227,9 +229,9 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
     override fun onQueryTextSubmit(query: String?) = false
 
     private fun getArtistSubtitle(item: String) = getString(
-            R.string.artist_info,
-            mMusicViewModel.deviceAlbumsByArtist?.getValue(item)?.size,
-            mMusicViewModel.deviceSongsByArtist?.getValue(item)?.size
+        R.string.artist_info,
+        mMusicViewModel.deviceAlbumsByArtist?.getValue(item)?.size,
+        mMusicViewModel.deviceSongsByArtist?.getValue(item)?.size
     )
 
     private fun setupIndicatorFastScrollerView() {
@@ -242,37 +244,37 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
             if (sIsFastScroller) {
 
                 mMusicContainerListBinding.fastscroller.setupWithRecyclerView(
-                        this,
-                        { position ->
-                            // Return a text tab_indicator
-                            mList?.get(position)?.run {
-                                getFastScrollerItem(requireActivity())
-                            }
-                        }, showIndicator = { _, indicatorPosition, totalIndicators ->
-                    // Hide every other indicator
-                    if (ThemeHelper.isDeviceLand(resources)) {
-                        indicatorPosition % 2 == 0
-                    } else {
-                        if (totalIndicators >= 30) {
+                    this,
+                    { position ->
+                        // Return a text tab_indicator
+                        mList?.get(position)?.run {
+                            getFastScrollerItem(requireActivity())
+                        }
+                    }, showIndicator = { _, indicatorPosition, totalIndicators ->
+                        // Hide every other indicator
+                        if (ThemeHelper.isDeviceLand(resources)) {
                             indicatorPosition % 2 == 0
                         } else {
-                            true
+                            if (totalIndicators >= 30) {
+                                indicatorPosition % 2 == 0
+                            } else {
+                                true
+                            }
                         }
                     }
-                }
                 )
 
                 mMusicContainerListBinding.fastscrollerThumb.setupWithFastScroller(
-                        mMusicContainerListBinding.fastscroller
+                    mMusicContainerListBinding.fastscroller
                 )
 
                 mMusicContainerListBinding.fastscroller.useDefaultScroller = false
                 mMusicContainerListBinding.fastscroller.itemIndicatorSelectedCallbacks += object :
-                        FastScrollerView.ItemIndicatorSelectedCallback {
+                    FastScrollerView.ItemIndicatorSelectedCallback {
                     override fun onItemIndicatorSelected(
-                            indicator: FastScrollItemIndicator,
-                            indicatorCenterY: Int,
-                            itemPosition: Int
+                        indicator: FastScrollItemIndicator,
+                        indicatorCenterY: Int,
+                        itemPosition: Int
                     ) {
                         val artistsLayoutManager = layoutManager as LinearLayoutManager
                         artistsLayoutManager.scrollToPositionWithOffset(itemPosition, 0)
@@ -288,11 +290,11 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
 
     private fun setupArtistsRecyclerViewPadding(forceNoPadding: Boolean) {
         val rvPaddingEnd =
-                if (sIsFastScrollerVisible && !forceNoPadding) {
-                    resources.getDimensionPixelSize(R.dimen.fast_scroller_view_dim)
-                } else {
-                    0
-                }
+            if (sIsFastScrollerVisible && !forceNoPadding) {
+                resources.getDimensionPixelSize(R.dimen.fast_scroller_view_dim)
+            } else {
+                0
+            }
         mMusicContainerListBinding.artistsFoldersRv.setPadding(0, 0, rvPaddingEnd, 0)
     }
 
@@ -317,10 +319,10 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
                 setListDataSource(mList)
 
                 mSortMenuItem.setTitleColor(
-                        ThemeHelper.resolveColorAttr(
-                                context,
-                                android.R.attr.textColorPrimary
-                        )
+                    ThemeHelper.resolveColorAttr(
+                        context,
+                        android.R.attr.textColorPrimary
+                    )
                 )
 
                 mSortMenuItem = ListsHelper.getSelectedSorting(mSorting, menu).apply {
@@ -355,9 +357,7 @@ class MusicContainersListFragment : Fragment(R.layout.fragment_music_container_l
          */
         @JvmStatic
         fun newInstance(launchedBy: String) = MusicContainersListFragment().apply {
-            arguments = Bundle().apply {
-                putString(TAG_LAUNCHED_BY, launchedBy)
-            }
+            arguments = bundleOf(TAG_LAUNCHED_BY to launchedBy)
         }
     }
 }

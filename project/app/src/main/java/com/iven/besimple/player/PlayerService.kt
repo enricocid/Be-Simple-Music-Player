@@ -1,7 +1,6 @@
 package com.iven.besimple.player
 
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
@@ -9,6 +8,7 @@ import android.os.Parcelable
 import android.os.PowerManager
 import android.support.v4.media.session.MediaSessionCompat
 import android.view.KeyEvent
+import androidx.core.content.getSystemService
 import com.iven.besimple.R
 import com.iven.besimple.beSimplePreferences
 import com.iven.besimple.extensions.toSavedMusic
@@ -38,14 +38,14 @@ class PlayerService : Service() {
 
         override fun onSeekTo(pos: Long) {
             mediaPlayerHolder.seekTo(
-                    pos.toInt(),
-                    updatePlaybackStatus = true,
-                    restoreProgressCallBack = false
+                pos.toInt(),
+                updatePlaybackStatus = true,
+                restoreProgressCallBack = false
             )
         }
 
         override fun onMediaButtonEvent(mediaButtonEvent: Intent?) =
-                handleMediaIntent(mediaButtonEvent)
+            handleMediaIntent(mediaButtonEvent)
     }
 
     private fun configureMediaSession() {
@@ -55,9 +55,7 @@ class PlayerService : Service() {
         }
     }
 
-    fun getMediaSession(): MediaSessionCompat {
-        return mMediaSessionCompat
-    }
+    fun getMediaSession(): MediaSessionCompat = mMediaSessionCompat
 
     override fun onDestroy() {
         super.onDestroy()
@@ -67,7 +65,7 @@ class PlayerService : Service() {
             mediaPlayerHolder.run {
                 currentSong?.let { musicToSave ->
                     beSimplePreferences.latestPlayedSong =
-                            musicToSave.toSavedMusic(playerPosition, launchedBy)
+                        musicToSave.toSavedMusic(playerPosition, launchedBy)
                 }
             }
 
@@ -116,7 +114,7 @@ class PlayerService : Service() {
     override fun onCreate() {
         super.onCreate()
         if (!::mWakeLock.isInitialized) {
-            val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+            val powerManager = getSystemService<PowerManager>()!!
             mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, javaClass.name)
             mWakeLock.setReferenceCounted(false)
         }
@@ -135,7 +133,7 @@ class PlayerService : Service() {
         try {
             intent?.let {
                 val event =
-                        intent.getParcelableExtra<Parcelable>(Intent.EXTRA_KEY_EVENT) as KeyEvent
+                    intent.getParcelableExtra<Parcelable>(Intent.EXTRA_KEY_EVENT) as KeyEvent
                 if (event.action == KeyEvent.ACTION_DOWN) {
                     when (event.keyCode) {
                         KeyEvent.KEYCODE_MEDIA_PAUSE, KeyEvent.KEYCODE_MEDIA_PLAY, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, KeyEvent.KEYCODE_HEADSETHOOK -> {

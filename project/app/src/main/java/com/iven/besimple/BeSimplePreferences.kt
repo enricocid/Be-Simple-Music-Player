@@ -1,6 +1,7 @@
 package com.iven.besimple
 
 import android.content.Context
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.iven.besimple.models.Music
 import com.iven.besimple.models.SavedEqualizerSettings
@@ -37,31 +38,35 @@ class BeSimplePreferences(context: Context) {
             prefsSavedEqualizerSettings,
             SavedEqualizerSettings::class.java
         )
-        set(value) = putObjectForClass(prefsSavedEqualizerSettings, value, SavedEqualizerSettings::class.java)
+        set(value) = putObjectForClass(
+            prefsSavedEqualizerSettings,
+            value,
+            SavedEqualizerSettings::class.java
+        )
 
     var theme
         get() = mPrefs.getString(prefsTheme, prefsThemeDef)
-        set(value) = mPrefs.edit().putString(prefsTheme, value).apply()
+        set(value) = mPrefs.edit { putString(prefsTheme, value) }
 
     var songsVisualization
         get() = mPrefs.getString(prefsSongsVisual, BeSimpleConstants.TITLE)
-        set(value) = mPrefs.edit().putString(prefsSongsVisual, value.toString()).apply()
+        set(value) = mPrefs.edit { putString(prefsSongsVisual, value.toString()) }
 
     var artistsSorting
         get() = mPrefs.getInt(prefsArtistsSorting, BeSimpleConstants.DESCENDING_SORTING)
-        set(value) = mPrefs.edit().putInt(prefsArtistsSorting, value).apply()
+        set(value) = mPrefs.edit { putInt(prefsArtistsSorting, value) }
 
     var foldersSorting
         get() = mPrefs.getInt(prefsFoldersSorting, BeSimpleConstants.DEFAULT_SORTING)
-        set(value) = mPrefs.edit().putInt(prefsFoldersSorting, value).apply()
+        set(value) = mPrefs.edit { putInt(prefsFoldersSorting, value) }
 
     var isFocusEnabled
         get() = mPrefs.getBoolean(prefsFocus, true)
-        set(value) = mPrefs.edit().putBoolean(prefsFocus, value).apply()
+        set(value) = mPrefs.edit { putBoolean(prefsFocus, value) }
 
     var isHeadsetPlugEnabled
         get() = mPrefs.getBoolean(prefsHeadsetPlug, true)
-        set(value) = mPrefs.edit().putBoolean(prefsHeadsetPlug, value).apply()
+        set(value) = mPrefs.edit { putBoolean(prefsHeadsetPlug, value) }
 
     // Retrieve object from the Preferences using Moshi
     private fun <T : Any> getObjectForClass(key: String, clazz: Class<T>): T? {
@@ -74,7 +79,7 @@ class BeSimplePreferences(context: Context) {
     // Saves object into the Preferences using Moshi
     private fun <T : Any> putObjectForClass(key: String, value: T?, clazz: Class<T>) {
         val json = mMoshi.adapter(clazz).toJson(value)
-        mPrefs.edit().putString(key, json).apply()
+        mPrefs.edit { putString(key, json) }
     }
 }
 

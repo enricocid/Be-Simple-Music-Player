@@ -13,17 +13,17 @@ object PermissionsHelper {
 
     @JvmStatic
     fun hasToAskForReadStoragePermission(activity: Activity) =
-            VersioningHelper.isMarshMallow() && ContextCompat.checkSelfPermission(
-                    activity,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(
+            activity,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) != PackageManager.PERMISSION_GRANTED
 
     @TargetApi(Build.VERSION_CODES.M)
     fun askForReadStoragePermission(activity: Activity) {
         ActivityCompat.requestPermissions(
-                activity,
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                BeSimpleConstants.PERMISSION_REQUEST_READ_EXTERNAL_STORAGE
+            activity,
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+            BeSimpleConstants.PERMISSION_REQUEST_READ_EXTERNAL_STORAGE
         )
     }
 }
