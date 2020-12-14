@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     // Pause SeekBar callback
     override fun onPause() {
         super.onPause()
-        if (isMediaPlayerHolder && mMediaPlayerHolder.isMediaPlayer) {
+        if (isMediaPlayerHolder && mMediaPlayerHolder.isMediaPlayer && !mMediaPlayerHolder.isSongRestoredFromPrefs) {
             saveSongToPref()
             mMediaPlayerHolder.run {
                 onPauseSeekBarCallback()
