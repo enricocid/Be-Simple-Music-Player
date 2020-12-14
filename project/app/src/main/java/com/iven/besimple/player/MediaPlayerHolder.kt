@@ -27,7 +27,6 @@ import com.iven.besimple.R
 import com.iven.besimple.beSimplePreferences
 import com.iven.besimple.extensions.toContentUri
 import com.iven.besimple.extensions.toToast
-import com.iven.besimple.fragments.EqFragment
 import com.iven.besimple.helpers.VersioningHelper
 import com.iven.besimple.models.Music
 import com.iven.besimple.models.SavedEqualizerSettings
@@ -204,11 +203,14 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
     }
 
     private fun createCustomEqualizer() {
-        if (mediaPlayer.audioSessionId != AudioEffect.ERROR_BAD_VALUE && !::mEqualizer.isInitialized && !::mBassBoost.isInitialized) {
-            mEqualizer = Equalizer(0, mediaPlayer.audioSessionId)
-            mBassBoost = BassBoost(0, mediaPlayer.audioSessionId)
-            setEqualizerEnabled(false)
-            restoreCustomEqSettings()
+        if (!::mEqualizer.isInitialized) {
+            try {
+                mBassBoost = BassBoost(0, mediaPlayer.audioSessionId)
+                mEqualizer = Equalizer(0, mediaPlayer.audioSessionId)
+                restoreCustomEqSettings()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
@@ -505,14 +507,14 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
                 }
             }
 
-            if (sFocusEnabled && isPlay) {
-                tryToGetAudioFocus()
-            }
-
             song?.id?.toContentUri()?.let { uri ->
                 mediaPlayer.setDataSource(playerService, uri)
             }
-            mediaPlayer.prepare()
+            mediaPlayer.prepareAsync()
+
+            if (sFocusEnabled && isPlay) {
+                tryToGetAudioFocus()
+            }
 
         } catch (e: Exception) {
             e.printStackTrace()
@@ -545,9 +547,16 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
 
         playerService.releaseWakeLock()
 
-        if (!EqualizerUtils.hasEqualizer(playerService)) {
-            // set equalizer the first time is instantiated
-            createCustomEqualizer()
+        // instantiate equalizer
+        if (mediaPlayer.audioSessionId != AudioEffect.ERROR_BAD_VALUE) {
+            if (EqualizerUtils.hasEqualizer(playerService.applicationContext)) {
+                EqualizerUtils.openAudioEffectSession(
+                    playerService.applicationContext,
+                    mediaPlayer.audioSessionId
+                )
+            } else {
+                createCustomEqualizer()
+            }
         }
     }
 
@@ -566,23 +575,19 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
 
                 setEqualizerEnabled(enabled)
 
-                try {
-                    mEqualizer.usePreset(preset.toShort())
+                mEqualizer.usePreset(preset.toShort())
 
-                    bandSettings?.iterator()?.withIndex()?.let { iterate ->
-                        while (iterate.hasNext()) {
-                            val item = iterate.next()
-                            mEqualizer.setBandLevel(
-                                item.index.toShort(),
-                                item.value.toInt().toShort()
-                            )
-                        }
+                bandSettings?.iterator()?.withIndex()?.let { iterate ->
+                    while (iterate.hasNext()) {
+                        val item = iterate.next()
+                        mEqualizer.setBandLevel(
+                            item.index.toShort(),
+                            item.value.toInt().toShort()
+                        )
                     }
-
-                    mBassBoost.setStrength(bassBoost)
-                } catch (e: Exception) {
-                    e.printStackTrace()
                 }
+
+                mBassBoost.setStrength(bassBoost)
             }
         }
     }
@@ -591,15 +596,16 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
         EqualizerUtils.openEqualizer(activity, mediaPlayer)
     }
 
-    fun openEqualizerCustom() = EqFragment.newInstance()
-
     fun release() {
         if (isMediaPlayer) {
-            EqualizerUtils.closeAudioEffectSession(
-                playerService,
-                mediaPlayer.audioSessionId
-            )
-            releaseCustomEqualizer()
+            if (EqualizerUtils.hasEqualizer(playerService.applicationContext)) {
+                EqualizerUtils.closeAudioEffectSession(
+                    playerService.applicationContext,
+                    mediaPlayer.audioSessionId
+                )
+            } else {
+                releaseCustomEqualizer()
+            }
             mediaPlayer.release()
             if (sFocusEnabled) {
                 giveUpAudioFocus()
