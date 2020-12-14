@@ -38,7 +38,7 @@ import kotlin.concurrent.schedule
  */
 class EqFragment : Fragment(R.layout.fragment_equalizer) {
 
-    private lateinit var mEqualizer: Pair<Equalizer, BassBoost>
+    private lateinit var mEqualizer: Pair<Equalizer?, BassBoost?>
 
     private lateinit var mEqFragmentBinding: FragmentEqualizerBinding
     private lateinit var mUIControlInterface: UIControlInterface
@@ -90,14 +90,15 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
             sliderBass.addOnChangeListener { _, value, fromUser ->
                 // Responds to when slider's value is changed
                 if (fromUser) {
-                    mEqualizer.second.setStrength(value.toInt().toShort())
+                    mEqualizer.second?.setStrength(value.toInt().toShort())
                 }
             }
         }
 
-        val equalizer = mEqualizer.first
-        (0 until equalizer.numberOfPresets).mapTo(mPresetsList) {
-            equalizer.getPresetName(it.toShort())
+        mEqualizer.first?.let { equalizer ->
+            (0 until equalizer.numberOfPresets).mapTo(mPresetsList) { preset ->
+                equalizer.getPresetName(preset.toShort())
+            }
         }
 
         mDataSource.set(mPresetsList)
@@ -148,7 +149,7 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                 ColorStateList.valueOf(R.color.windowBackground.decodeColor(requireActivity()))
         }
 
-        mEqualizer.first.run {
+        mEqualizer.first?.run {
             val bandLevelRange = bandLevelRange
             val minBandLevel = bandLevelRange[0]
             val maxBandLevel = bandLevelRange[1]
@@ -163,7 +164,7 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                     slider.addOnChangeListener { selectedSlider, value, fromUser ->
                         if (fromUser) {
                             if (mSliders[item.index] == selectedSlider) {
-                                mEqualizer.first.setBandLevel(
+                                mEqualizer.first?.setBandLevel(
                                     item.index.toShort(),
                                     value.toInt().toShort()
                                 )
@@ -200,7 +201,7 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                             adapter?.notifyItemChanged(mSelectedPreset)
                             mSelectedPreset = index
                             adapter?.notifyItemChanged(mSelectedPreset)
-                            mEqualizer.first.usePreset(mSelectedPreset.toShort())
+                            mEqualizer.first?.usePreset(mSelectedPreset.toShort())
                             updateBandLevels(true)
                         }
                     }
@@ -235,7 +236,9 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
             menu.run {
                 val equalizerSwitchMaterial =
                     findItem(R.id.equalizerSwitch).actionView as SwitchMaterial
-                equalizerSwitchMaterial.isChecked = mEqualizer.first.enabled
+                mEqualizer.first?.let { equalizer ->
+                    equalizerSwitchMaterial.isChecked = equalizer.enabled
+                }
                 equalizerSwitchMaterial.setOnCheckedChangeListener { _, isChecked ->
                     Timer().schedule(1000) {
                         mUIControlInterface.onEnableEqualizer(isChecked)
@@ -250,8 +253,10 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
             val iterator = mSliders.iterator().withIndex()
             while (iterator.hasNext()) {
                 val item = iterator.next()
-                item.value?.let { slider ->
-                    slider.value = mEqualizer.first.getBandLevel(item.index.toShort()).toFloat()
+                mEqualizer.first?.let { equalizer ->
+                    item.value?.let { slider ->
+                        slider.value = equalizer.getBandLevel(item.index.toShort()).toFloat()
+                    }
                 }
             }
             if (!isPresetChanged) {

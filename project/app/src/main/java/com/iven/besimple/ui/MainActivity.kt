@@ -714,7 +714,7 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
         }
     }
 
-    override fun onGetEqualizer(): Pair<Equalizer, BassBoost> = mMediaPlayerHolder.getEqualizer()
+    override fun onGetEqualizer(): Pair<Equalizer?, BassBoost?> = mMediaPlayerHolder.getEqualizer()
 
     override fun onEnableEqualizer(isEnabled: Boolean) {
         if (::mMediaPlayerHolder.isInitialized) {
@@ -732,13 +732,15 @@ class MainActivity : AppCompatActivity(), UIControlInterface {
     private fun openEqualizer() {
         if (checkIsPlayer()) {
             if (!EqualizerUtils.hasEqualizer(this)) {
-                if (!sEqFragmentExpanded) {
-                    mEqualizerFragment = EqFragment.newInstance()
-                    sCloseDetailsFragment = !sDetailsFragmentExpanded
-                    supportFragmentManager.addFragment(
-                        mEqualizerFragment,
-                        BeSimpleConstants.EQ_FRAGMENT_TAG
-                    )
+                synchronized(mMediaPlayerHolder.onOpenEqualizerCustom()) {
+                    if (!sEqFragmentExpanded) {
+                        mEqualizerFragment = EqFragment.newInstance()
+                        sCloseDetailsFragment = !sDetailsFragmentExpanded
+                        supportFragmentManager.addFragment(
+                            mEqualizerFragment,
+                            BeSimpleConstants.EQ_FRAGMENT_TAG
+                        )
+                    }
                 }
             } else {
                 mMediaPlayerHolder.openEqualizer(this)

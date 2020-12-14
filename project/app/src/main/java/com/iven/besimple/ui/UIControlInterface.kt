@@ -13,7 +13,7 @@ interface UIControlInterface {
     fun onDenyPermission()
     fun onHandleFocusPref()
     fun onHandleNotificationUpdate()
-    fun onGetEqualizer(): Pair<Equalizer, BassBoost>
+    fun onGetEqualizer(): Pair<Equalizer?, BassBoost?>
     fun onEnableEqualizer(isEnabled: Boolean)
     fun onSaveEqualizerSettings(selectedPreset: Int, bassBoost: Short)
 }
