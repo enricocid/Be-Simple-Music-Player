@@ -9,25 +9,24 @@ import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.AudioAttributes
-import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.audiofx.AudioEffect
 import android.media.audiofx.BassBoost
 import android.media.audiofx.Equalizer
-import android.os.Handler
-import android.os.Looper
 import android.os.PowerManager
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.PlaybackStateCompat.ACTION_SEEK_TO
 import android.support.v4.media.session.PlaybackStateCompat.Builder
 import androidx.core.content.getSystemService
+import androidx.media.AudioAttributesCompat
+import androidx.media.AudioFocusRequestCompat
+import androidx.media.AudioManagerCompat
 import com.iven.besimple.BeSimpleConstants
 import com.iven.besimple.R
 import com.iven.besimple.beSimplePreferences
 import com.iven.besimple.extensions.toContentUri
 import com.iven.besimple.extensions.toToast
-import com.iven.besimple.helpers.VersioningHelper
 import com.iven.besimple.models.Music
 import com.iven.besimple.models.SavedEqualizerSettings
 import com.iven.besimple.ui.MainActivity
@@ -77,8 +76,7 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
 
     // Audio focus
     private var mAudioManager = playerService.getSystemService<AudioManager>()!!
-    private lateinit var mAudioFocusRequestOreo: AudioFocusRequest
-    private val mHandler = Handler(Looper.getMainLooper())
+    private lateinit var mAudioFocusRequestCompat: AudioFocusRequestCompat
 
     private val sFocusEnabled get() = beSimplePreferences.isFocusEnabled
     private var mCurrentAudioFocusState = AUDIO_NO_FOCUS_NO_DUCK
@@ -298,45 +296,31 @@ class MediaPlayerHolder(private val playerService: PlayerService) :
     }
 
     fun tryToGetAudioFocus() {
-        mCurrentAudioFocusState = when (getAudioFocusResult()) {
-            AudioManager.AUDIOFOCUS_REQUEST_GRANTED -> AUDIO_FOCUSED
-            else -> AUDIO_NO_FOCUS_NO_DUCK
-        }
-    }
-
-    @Suppress("DEPRECATION")
-    private fun getAudioFocusResult() = when {
-        VersioningHelper.isOreoMR1() -> {
-            mAudioFocusRequestOreo =
-                AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN).run {
-                    setAudioAttributes(AudioAttributes.Builder().run {
-                        setUsage(AudioAttributes.USAGE_MEDIA)
-                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                            .build()
-                    })
-                    setAcceptsDelayedFocusGain(true)
-                    setOnAudioFocusChangeListener(mOnAudioFocusChangeListener, mHandler)
-                    build()
-                }
-            mAudioManager.requestAudioFocus(mAudioFocusRequestOreo)
-        }
-        else -> mAudioManager.requestAudioFocus(
-            mOnAudioFocusChangeListener,
-            AudioManager.STREAM_MUSIC,
-            AudioManager.AUDIOFOCUS_GAIN
-        )
-    }
-
-    @Suppress("DEPRECATION")
-    fun giveUpAudioFocus() {
-        when {
-            VersioningHelper.isOreo() -> if (::mAudioFocusRequestOreo.isInitialized) {
-                mAudioManager.abandonAudioFocusRequest(
-                    mAudioFocusRequestOreo
-                )
+        synchronized(getAudioFocusResult()) {
+            val requestFocus =
+                AudioManagerCompat.requestAudioFocus(mAudioManager, mAudioFocusRequestCompat)
+            mCurrentAudioFocusState = when (requestFocus) {
+                AudioManager.AUDIOFOCUS_REQUEST_GRANTED -> AUDIO_FOCUSED
+                else -> AUDIO_NO_FOCUS_NO_DUCK
             }
-            else -> mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener)
         }
+    }
+
+    private fun getAudioFocusResult() {
+        val audioAttributes = AudioAttributesCompat.Builder()
+            .setUsage(AudioAttributesCompat.USAGE_MEDIA)
+            .setContentType(AudioAttributesCompat.CONTENT_TYPE_MUSIC)
+            .build()
+        mAudioFocusRequestCompat =
+            AudioFocusRequestCompat.Builder(AudioManagerCompat.AUDIOFOCUS_GAIN)
+                .setAudioAttributes(audioAttributes)
+                .setOnAudioFocusChangeListener(mOnAudioFocusChangeListener)
+                .setWillPauseWhenDucked(true)
+                .build()
+    }
+
+    fun giveUpAudioFocus() {
+        AudioManagerCompat.abandonAudioFocusRequest(mAudioManager, mAudioFocusRequestCompat)
         mCurrentAudioFocusState = AUDIO_NO_FOCUS_NO_DUCK
     }
 
