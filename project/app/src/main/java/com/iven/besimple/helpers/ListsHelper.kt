@@ -101,6 +101,8 @@ object ListsHelper {
     fun getSelectedSorting(sorting: Int, menu: Menu): MenuItem = when (sorting) {
         BeSimpleConstants.DEFAULT_SORTING -> menu.findItem(R.id.default_sorting)
         BeSimpleConstants.ASCENDING_SORTING -> menu.findItem(R.id.ascending_sorting)
+        BeSimpleConstants.TRACK_SORTING -> menu.findItem(R.id.track_sorting)
+        BeSimpleConstants.TRACK_SORTING_INVERTED -> menu.findItem(R.id.track_sorting_inv)
         else -> menu.findItem(R.id.descending_sorting)
     }
 

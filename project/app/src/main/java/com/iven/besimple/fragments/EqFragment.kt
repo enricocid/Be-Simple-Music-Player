@@ -8,6 +8,7 @@ import android.media.audiofx.Equalizer
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.afollestad.recyclical.datasource.emptyDataSource
 import com.afollestad.recyclical.setup
@@ -22,7 +23,6 @@ import com.iven.besimple.beSimplePreferences
 import com.iven.besimple.databinding.FragmentEqualizerBinding
 import com.iven.besimple.extensions.afterMeasured
 import com.iven.besimple.extensions.createCircularReveal
-import com.iven.besimple.extensions.decodeColor
 import com.iven.besimple.extensions.toToast
 import com.iven.besimple.helpers.ThemeHelper
 import com.iven.besimple.ui.PresetsViewHolder
@@ -71,10 +71,10 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
     fun onHandleBackPressed(): Animator {
         if (!mEqAnimator.isRunning) {
             mEqAnimator =
-                mEqFragmentBinding.root.createCircularReveal(
-                    isErrorFragment = false,
-                    show = false
-                )
+                    mEqFragmentBinding.root.createCircularReveal(
+                            isErrorFragment = false,
+                            show = false
+                    )
         }
         return mEqAnimator
     }
@@ -114,8 +114,8 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
 
     private fun saveEqSettings() {
         mUIControlInterface.onSaveEqualizerSettings(
-            mSelectedPreset,
-            mEqFragmentBinding.sliderBass.value.toInt().toShort()
+                mSelectedPreset,
+                mEqFragmentBinding.sliderBass.value.toInt().toShort()
         )
     }
 
@@ -139,14 +139,14 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
         }
 
         val shapeAppearanceModel = ShapeAppearanceModel()
-            .toBuilder()
-            .setAllCorners(CornerFamily.ROUNDED, resources.getDimension(R.dimen.md_corner_radius))
-            .build()
+                .toBuilder()
+                .setAllCorners(CornerFamily.ROUNDED, resources.getDimension(R.dimen.md_corner_radius))
+                .build()
         val roundedTextBackground = MaterialShapeDrawable(shapeAppearanceModel).apply {
-            strokeColor = ColorStateList.valueOf(R.color.blue.decodeColor(requireActivity()))
+            strokeColor = ColorStateList.valueOf(ContextCompat.getColor(requireActivity(), R.color.blue))
             strokeWidth = 0.25F
             fillColor =
-                ColorStateList.valueOf(R.color.windowBackground.decodeColor(requireActivity()))
+                    ColorStateList.valueOf(ContextCompat.getColor(requireActivity(), R.color.windowBackground))
         }
 
         mEqualizer.first?.run {
@@ -165,8 +165,8 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                         if (fromUser) {
                             if (mSliders[item.index] == selectedSlider) {
                                 mEqualizer.first?.setBandLevel(
-                                    item.index.toShort(),
-                                    value.toInt().toShort()
+                                        item.index.toShort(),
+                                        value.toInt().toShort()
                                 )
                             }
                         }
@@ -187,11 +187,11 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
                         onBind(::PresetsViewHolder) { index, item ->
                             presetTitle.text = item
                             val textColor = if (mSelectedPreset == index) {
-                                R.color.blue.decodeColor(requireActivity())
+                                ContextCompat.getColor(requireActivity(), R.color.blue)
                             } else {
                                 ThemeHelper.resolveColorAttr(
-                                    requireActivity(),
-                                    android.R.attr.textColorPrimary
+                                        requireActivity(),
+                                        android.R.attr.textColorPrimary
                                 )
                             }
                             presetTitle.setTextColor(textColor)
@@ -217,10 +217,10 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
         if (sLaunchCircleReveal) {
             view.afterMeasured {
                 mEqAnimator =
-                    mEqFragmentBinding.root.createCircularReveal(
-                        isErrorFragment = false,
-                        show = true
-                    )
+                        mEqFragmentBinding.root.createCircularReveal(
+                                isErrorFragment = false,
+                                show = true
+                        )
             }
         }
     }
@@ -235,7 +235,7 @@ class EqFragment : Fragment(R.layout.fragment_equalizer) {
             inflateMenu(R.menu.menu_eq)
             menu.run {
                 val equalizerSwitchMaterial =
-                    findItem(R.id.equalizerSwitch).actionView as SwitchMaterial
+                        findItem(R.id.equalizerSwitch).actionView as SwitchMaterial
                 mEqualizer.first?.let { equalizer ->
                     equalizerSwitchMaterial.isChecked = equalizer.enabled
                 }

@@ -1,0 +1,2 @@
+- Fix crash on boot while initializing the equalizer
+- Code improvements (thanks TacoTheDank)

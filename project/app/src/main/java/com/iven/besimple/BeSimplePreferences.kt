@@ -28,20 +28,20 @@ class BeSimplePreferences(context: Context) {
 
     var latestPlayedSong: Music?
         get() = getObjectForClass(
-            prefsLatestPlayedSong,
-            Music::class.java
+                prefsLatestPlayedSong,
+                Music::class.java
         )
         set(value) = putObjectForClass(prefsLatestPlayedSong, value, Music::class.java)
 
     var savedEqualizerSettings: SavedEqualizerSettings?
         get() = getObjectForClass(
-            prefsSavedEqualizerSettings,
-            SavedEqualizerSettings::class.java
+                prefsSavedEqualizerSettings,
+                SavedEqualizerSettings::class.java
         )
         set(value) = putObjectForClass(
-            prefsSavedEqualizerSettings,
-            value,
-            SavedEqualizerSettings::class.java
+                prefsSavedEqualizerSettings,
+                value,
+                SavedEqualizerSettings::class.java
         )
 
     var theme

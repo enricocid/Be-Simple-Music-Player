@@ -1,0 +1,3 @@
+- Corretto un crash all'apertura della app che si verificava alla scorretta
+inizializzazione dell'equalizzatore
+- Miglioramenti codice (grazie TacoTheDank)

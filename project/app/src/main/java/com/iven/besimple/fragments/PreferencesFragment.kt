@@ -21,7 +21,7 @@ import com.iven.besimple.ui.UIControlInterface
 
 
 class PreferencesFragment : PreferenceFragmentCompat(),
-    SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
+        SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
     private lateinit var mUIControlInterface: UIControlInterface
 
@@ -57,14 +57,14 @@ class PreferencesFragment : PreferenceFragmentCompat(),
         super.onViewCreated(view, savedInstanceState)
 
         findPreference<Preference>(getString(R.string.open_git_pref))?.onPreferenceClickListener =
-            this
+                this
 
         ViewModelProvider(requireActivity()).get(MusicViewModel::class.java).apply {
             deviceMusic.observe(viewLifecycleOwner, { returnedMusic ->
                 if (!returnedMusic.isNullOrEmpty()) {
                     findPreference<Preference>(getString(R.string.found_songs_pref))?.let { preference ->
                         preference.title =
-                            getString(R.string.found_songs_pref_title, musicDatabaseSize)
+                                getString(R.string.found_songs_pref_title, musicDatabaseSize)
                     }
                 }
             })
@@ -72,8 +72,8 @@ class PreferencesFragment : PreferenceFragmentCompat(),
 
         mThemePreference = findPreference<Preference>(getString(R.string.theme_pref))?.apply {
             icon = AppCompatResources.getDrawable(
-                requireActivity(),
-                ThemeHelper.resolveThemeIcon(requireActivity())
+                    requireActivity(),
+                    ThemeHelper.resolveThemeIcon(requireActivity())
             )
         }
     }
@@ -93,10 +93,10 @@ class PreferencesFragment : PreferenceFragmentCompat(),
         when (key) {
             getString(R.string.theme_pref) -> {
                 mThemePreference?.icon =
-                    AppCompatResources.getDrawable(
-                        requireActivity(),
-                        ThemeHelper.resolveThemeIcon(requireActivity())
-                    )
+                        AppCompatResources.getDrawable(
+                                requireActivity(),
+                                ThemeHelper.resolveThemeIcon(requireActivity())
+                        )
                 mUIControlInterface.onThemeChanged()
             }
             getString(R.string.focus_pref) -> mUIControlInterface.onHandleFocusPref()
@@ -106,9 +106,9 @@ class PreferencesFragment : PreferenceFragmentCompat(),
     @SuppressLint("QueryPermissionsNeeded")
     private fun openCustomTab(link: String) {
         val customTabsIntent = CustomTabsIntent.Builder()
-            .setShareState(CustomTabsIntent.SHARE_STATE_ON)
-            .setShowTitle(true)
-            .build()
+                .setShareState(CustomTabsIntent.SHARE_STATE_ON)
+                .setShowTitle(true)
+                .build()
 
         val parsedUri = link.toUri()
         val manager = requireActivity().packageManager
@@ -126,9 +126,9 @@ class PreferencesFragment : PreferenceFragmentCompat(),
                 requireActivity().startActivity(browserIntent)
             } else {
                 Toast.makeText(
-                    context,
-                    requireActivity().getString(R.string.error_no_browser),
-                    Toast.LENGTH_SHORT
+                        requireActivity(),
+                        requireActivity().getString(R.string.error_no_browser),
+                        Toast.LENGTH_SHORT
                 ).show()
             }
         }

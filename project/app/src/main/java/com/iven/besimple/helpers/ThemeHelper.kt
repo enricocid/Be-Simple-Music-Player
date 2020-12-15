@@ -14,11 +14,11 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import com.iven.besimple.BeSimpleConstants
 import com.iven.besimple.R
 import com.iven.besimple.beSimplePreferences
-import com.iven.besimple.extensions.decodeColor
 import com.iven.besimple.player.MediaPlayerHolder
 import com.iven.besimple.ui.MainActivity
 
@@ -30,9 +30,9 @@ object ThemeHelper {
         val intent = Intent(activity, MainActivity::class.java)
 
         intent.addFlags(
-            Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    or Intent.FLAG_ACTIVITY_NEW_TASK
+                Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        or Intent.FLAG_ACTIVITY_NEW_TASK
         )
         activity.run {
             finishAfterTransition()
@@ -70,12 +70,12 @@ object ThemeHelper {
 
     @JvmStatic
     fun isDeviceLand(resources: Resources) =
-        resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     @JvmStatic
     fun updateIconTint(imageButton: ImageButton, tint: Int) {
         ImageViewCompat.setImageTintList(
-            imageButton, ColorStateList.valueOf(tint)
+                imageButton, ColorStateList.valueOf(tint)
         )
     }
 
@@ -83,23 +83,23 @@ object ThemeHelper {
     @JvmStatic
     fun resolveColorAttr(context: Context, @AttrRes colorAttr: Int): Int {
         val resolvedAttr: TypedValue =
-            resolveThemeAttr(
-                context,
-                colorAttr
-            )
+                resolveThemeAttr(
+                        context,
+                        colorAttr
+                )
         // resourceId is used if it's a ColorStateList, and data if it's a color reference or a hex color
         val colorRes =
-            if (resolvedAttr.resourceId != 0) {
-                resolvedAttr.resourceId
-            } else {
-                resolvedAttr.data
-            }
-        return colorRes.decodeColor(context)
+                if (resolvedAttr.resourceId != 0) {
+                    resolvedAttr.resourceId
+                } else {
+                    resolvedAttr.data
+                }
+        return ContextCompat.getColor(context, colorRes)
     }
 
     @JvmStatic
     private fun resolveThemeAttr(context: Context, @AttrRes attrRes: Int) =
-        TypedValue().apply { context.theme.resolveAttribute(attrRes, this, true) }
+            TypedValue().apply { context.theme.resolveAttribute(attrRes, this, true) }
 
     @JvmStatic
     fun createColouredRipple(context: Context, rippleColor: Int, rippleId: Int): Drawable {

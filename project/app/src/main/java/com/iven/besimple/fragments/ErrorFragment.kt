@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.iven.besimple.BeSimpleConstants
@@ -11,7 +12,6 @@ import com.iven.besimple.R
 import com.iven.besimple.databinding.FragmentErrorBinding
 import com.iven.besimple.extensions.afterMeasured
 import com.iven.besimple.extensions.createCircularReveal
-import com.iven.besimple.extensions.decodeColor
 import com.iven.besimple.helpers.VersioningHelper
 import com.iven.besimple.ui.UIControlInterface
 
@@ -71,7 +71,8 @@ class ErrorFragment : Fragment(R.layout.fragment_error) {
                 createCircularReveal(isErrorFragment = true, show = true).doOnEnd {
                     if (!VersioningHelper.isOreoMR1()) {
                         requireActivity().window.run {
-                            val red = R.color.red.decodeColor(requireActivity())
+
+                            val red = ContextCompat.getColor(requireActivity(), R.color.red)
                             statusBarColor = red
                             navigationBarColor = red
                         }
